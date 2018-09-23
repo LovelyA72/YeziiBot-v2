@@ -8,7 +8,6 @@ include ('../core/CQCode.php');
 include ('../core/CoolQ.php');
 include('initialize.php');
 include("tools/frame.php");
-$MsgSender->sendMsg(new Message("it works",2927103357,false));
 
 use \YeziiBot\Framework\Message;
 use \YeziiBot\core\CoolQ;
@@ -42,7 +41,7 @@ try{
 try{
     //将队列中的消息发出
     foreach($Queue as $msg){
-        //$MsgSender->sendMsg($msg);
+        $MsgSender->sendMsg($msg);
     }
 }catch(\Exception $e){
     setData('error.log', var_dump($Event).$e.$e->getCode()."\n", true);

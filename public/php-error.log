@@ -1284,3 +1284,68 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:34 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:34 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:40 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:40 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:41 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:41 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:50 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:50 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:54 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:54 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:55 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:56:55 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 11
+[23-Sep-2018 20:57:16 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:16 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 20
+[23-Sep-2018 20:57:16 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 21
+[23-Sep-2018 20:57:16 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:16 Asia/Shanghai] PHP Notice:  Undefined variable: Debug in C:\GitHub\YeziiBot-v2\public\index.php on line 33
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 20
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 21
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Notice:  Undefined variable: Debug in C:\GitHub\YeziiBot-v2\public\index.php on line 33
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 44
+[23-Sep-2018 20:57:28 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:44
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 44
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 20
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 21
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Notice:  Undefined variable: Debug in C:\GitHub\YeziiBot-v2\public\index.php on line 33
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 44
+[23-Sep-2018 20:57:43 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:44
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 44
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 20
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Notice:  Undefined variable: Event in C:\GitHub\YeziiBot-v2\public\index.php on line 21
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\GitHub\YeziiBot-v2\public\tools\frame.php on line 20
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Notice:  Undefined variable: Debug in C:\GitHub\YeziiBot-v2\public\index.php on line 33
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Notice:  Undefined variable: MsgSender in C:\GitHub\YeziiBot-v2\public\index.php on line 44
+[23-Sep-2018 20:57:44 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to a member function sendMsg() on null in C:\GitHub\YeziiBot-v2\public\index.php:44
+Stack trace:
+#0 {main}
+  thrown in C:\GitHub\YeziiBot-v2\public\index.php on line 44
