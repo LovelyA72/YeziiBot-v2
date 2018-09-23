@@ -2,7 +2,7 @@
 
 if(function_exists('fastcgi_finish_request'))fastcgi_finish_request();
 
-require('init.php');
+require('initialize.php');
 
 use \YeziiBot\Framework\Message;
 
