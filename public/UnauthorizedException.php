@@ -7,5 +7,3 @@ class UnauthorizedException extends \Exception{
         $this->code=401;
     }
 }
-
-?>
