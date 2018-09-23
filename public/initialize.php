@@ -1,9 +1,10 @@
 <?
 include("../vendor/autoload.php");
 
-use \YeziiBot\core\CoolQ;
-use \YeziiBot\core\CQCode;
-use \YeziiBot\Framework\MessageSender;
+
+use YeziiBot\core\CoolQ;
+use YeziiBot\core\CQCode;
+use YeziiBot\Framework\MessageSender;
 
 include("../LocalSettings.php");
 $Event = json_decode(file_get_contents('php://input'), true);

@@ -19,6 +19,13 @@
             "role": "Framework developer"
         }
     ],
+	"autoload": {
+        "psr-4": {
+            "YeziiBot\\core\\": "core\\",
+            "YeziiBot\\Framework\\": "public\\"
+        },
+        "files": ["public/tools/Autoload.php"]
+    },
     "require": {
         "php": "^7.1",
         "ext-sqlite3": "^7.1"

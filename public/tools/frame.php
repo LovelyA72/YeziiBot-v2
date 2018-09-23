@@ -1,7 +1,8 @@
 <?php
-use \YeziiBot\core\CQCode;
-use \YeziiBot\Framework\Message;
-use \YeziiBot\Framework\UnauthorizedException;
+
+use YeziiBot\core\CQCode;
+use YeziiBot\Framework\Message;
+use YeziiBot\Framework\UnauthorizedException;
 
 /**
  * 读取配置文件
