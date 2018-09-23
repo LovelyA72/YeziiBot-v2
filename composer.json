@@ -29,14 +29,6 @@
         "lcobucci/jwt": "issue 模块依赖",
         "linfo/linfo": "status 模块依赖"
     },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('config.ini') || copy('config.ini.example', 'config.ini');\""
-        ],
-        "framework-only": [
-            "@php framework-only.php"
-        ]
-    },
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true
