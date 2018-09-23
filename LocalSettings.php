@@ -1,6 +1,6 @@
 <?php
 $Config["API"]="127.0.0.1:5710";
-$Config["token"]="w5i6IKI1etAMaklt8ost6fUq5gep6w1c";
+$Config["token"]="nEQOCruyiwezIfrlGa8echlgLFrLphos";
 $Config["prefix"]="%";
 $Config["master"]=2927103357;
 $Config["bot"]=1227619249;
