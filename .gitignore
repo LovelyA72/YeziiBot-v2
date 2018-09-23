@@ -3,3 +3,4 @@
 /.idea
 
 LocalSettings.php
+public/php-error.log
