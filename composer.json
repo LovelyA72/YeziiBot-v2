@@ -1,0 +1,51 @@
+{
+    "name": "lovelya72/YeziiBotV2",
+    "description": "A flexable CQP bot that built on the kjBotV2 core",
+    "version": "0.1.0",
+    "keywords": ["QQ", "CQP", "qqbot","kjbot","coolq-http-api"],
+    "homepage": "https://github.com/hexiaolingProject",
+    "license": "AGPL-3.0-only",
+    "authors": [
+        {
+            "name": "LovelyA72",
+            "email": "a72@luotianyi.pro",
+            "homepage": "https://www.yzwiki.com/blog",
+            "role": "Developer"
+        },
+        {
+            "name": "kj415j45",
+            "email": "kj415j45@gmail.com",
+            "homepage": "https://github.com/kj415j45",
+            "role": "Framework developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-sqlite3": "^7.1"
+    },
+    "suggest": {
+        "knplabs/github-api": "issue, version 模块依赖",
+        "php-http/guzzle6-adapter": "github-api 库依赖",
+        "lcobucci/jwt": "issue 模块依赖",
+        "linfo/linfo": "status 模块依赖"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('config.ini') || copy('config.ini.example', 'config.ini');\""
+        ],
+        "framework-only": [
+            "@php framework-only.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "require-dev": {
+        "ext-json": "^1.5",
+        "knplabs/github-api": "^2.9",
+        "lcobucci/jwt": "^3.2",
+        "linfo/linfo": "^4.0",
+        "php-http/guzzle6-adapter": "^1.1"
+    }
+}
