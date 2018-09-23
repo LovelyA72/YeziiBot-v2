@@ -1,10 +1,15 @@
 <?
+include('UnauthorizedException.php');
 include("../vendor/autoload.php");
-
+include ('../core/API.php');
+include ('../core/CQCode.php');
+include ('../core/CoolQ.php');
 
 use YeziiBot\core\CoolQ;
 use YeziiBot\core\CQCode;
+use YeziiBot\core\API;
 use YeziiBot\Framework\MessageSender;
+use YeziiBot\Framework\UnauthorizedException;
 
 include("../LocalSettings.php");
 $Event = json_decode(file_get_contents('php://input'), true);
@@ -18,4 +23,4 @@ $DebugListen = config('DebugListen', config('master'));
 $Command = [];
 $Text = '';
 $StatDB = new SQLite3('../storage/data/stat.db');
-block($Event['user_id']);
+//block($Event['user_id']);

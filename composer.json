@@ -27,8 +27,8 @@
         "files": ["public/tools/Autoload.php"]
     },
     "require": {
-        "php": "^7.1",
-        "ext-sqlite3": "^7.1"
+        "php": "^7.2",
+        "ext-sqlite3": "^7.2"
     },
     "suggest": {
         "knplabs/github-api": "issue, version 模块依赖",
@@ -41,7 +41,7 @@
         "optimize-autoloader": true
     },
     "require-dev": {
-        "ext-json": "^1.5",
+        "ext-json": "^1.6",
         "knplabs/github-api": "^2.9",
         "lcobucci/jwt": "^3.2",
         "linfo/linfo": "^4.0",

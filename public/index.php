@@ -1,19 +1,26 @@
 <?php
-
+ob_start();
 if(function_exists('fastcgi_finish_request'))fastcgi_finish_request();
 
-require('initialize.php');
+include('UnauthorizedException.php');
+include ('../core/API.php');
+include ('../core/CQCode.php');
+include ('../core/CoolQ.php');
+include('initialize.php');
 include("tools/frame.php");
+$MsgSender->sendMsg(new Message("it works",2927103357,false));
 
 use \YeziiBot\Framework\Message;
+use \YeziiBot\core\CoolQ;
 
 try{
     $listen = config('Listen');
     if($listen !== NULL && ($Event['group_id'] == $listen || $listen == $Event['user_id'])){
         $Queue[]= sendMaster('['.date('Y-m-d H:i:s', $Event['time']-86400)."] {$Event['user_id']} say:\n{$Event['message']}", false, true);
     }
-
+    print_r($Event);
     switch($Event['post_type']){
+        
         case 'message':
         case 'notice':
         case 'request':
@@ -35,7 +42,7 @@ try{
 try{
     //将队列中的消息发出
     foreach($Queue as $msg){
-        $MsgSender->sendMsg($msg);
+        //$MsgSender->sendMsg($msg);
     }
 }catch(\Exception $e){
     setData('error.log', var_dump($Event).$e.$e->getCode()."\n", true);

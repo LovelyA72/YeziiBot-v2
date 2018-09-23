@@ -10,10 +10,10 @@ class MessageSender{
     }
 
     function sendMsg(Message $msg){
-        if($msg->isGroup()){
-            $this->CQ->sendGroupMsg($msg->getID(),$msg->getText());
+        if($msg->isGroup){
+            $this->CQ->sendGroupMsg($msg->id,$msg->text);
         }else{
-            $this->CQ->sendPrivateMsg($msg->getID(),$msg->getText());
+            $this->CQ->sendPrivateMsg($msg->id,$msg->text);
         }
     }
 }

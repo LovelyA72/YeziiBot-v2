@@ -19,7 +19,10 @@ class CoolQ{
             'auto_escape' => $auto_escape,
             'is_raw' => $auto_escape,
         ];
-        return $this->query($api, $param);
+        try {
+            return $this->query($api, $param);
+        } catch (\Exception $e) {
+        }
     }
 
     public function sendPrivateMsgAsync($user_id, $message, $auto_escape = false){

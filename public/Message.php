@@ -2,11 +2,11 @@
 namespace YeziiBot\Framework;
 
 class Message{
-    private $text;
-    private $id;
-    private $isGroup;
-    private $auto_escape;
-    private $async;
+    public $text;
+    public $id;
+    public $isGroup;
+    public $auto_escape;
+    public $async;
 
     /*
     * @param string $text 消息的内容
@@ -19,21 +19,6 @@ class Message{
         $this->$isGroup = $isGroup;
         $this->$auto_escape = $auto_escape;
         $this->$async = $async;
-    }
-    public function getText(){
-        return $this->isAsync;
-    }
-    public function getID(){
-        return $this->id;
-    }
-    public function isGroup(){
-        return $this->isGroup;
-    }
-    public function isAutoEsc(){
-        return $this->auto_escape;
-    }
-    public function isAsync(){
-        return $this->async;
     }
 
 }

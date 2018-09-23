@@ -1,8 +1,12 @@
 <?php
 
+include("Message.php");
+include("messageSender.php");
+
 use YeziiBot\core\CQCode;
 use YeziiBot\Framework\Message;
 use YeziiBot\Framework\UnauthorizedException;
+
 
 /**
  * 读取配置文件
