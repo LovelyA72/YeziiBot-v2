@@ -1,4 +1,4 @@
-# kjBot [![Maintainability](https://api.codeclimate.com/v1/badges/4b1d92da794a35538812/maintainability)](https://codeclimate.com/github/kj415j45/kjBot/maintainability) [![Latest Stable Version](https://poser.pugx.org/kj415j45/kjbot/v/stable)](https://packagist.org/packages/kj415j45/kjbot) [![Total Downloads](https://poser.pugx.org/kj415j45/kjbot/downloads)](https://packagist.org/packages/kj415j45/kjbot) [![License](https://poser.pugx.org/kj415j45/kjbot/license)](https://packagist.org/packages/kj415j45/kjbot) [![kjBot Dev 群](https://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5ZDksTi)
+# YeziiBot v2
 
 YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机器人框架。
 
@@ -76,10 +76,6 @@ if(!fromGroup()){ //如果消息不是来自群聊
 ### 编写更多模块
 
 参考 `module/` 文件夹下的其他模块
-
-## 参与开发
-
-![](https://user-images.githubusercontent.com/18349191/42219471-99b181e4-7efe-11e8-92a8-20535f40d126.png)
 
 ## 感谢
 
