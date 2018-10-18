@@ -4,7 +4,6 @@ global $Event, $Message, $Queue;
 
 if(!fromGroup())throw new \Exception();
 
-if($Event['group_id']==788054627)throw new \Exception();
 
 if(getData("repeat/{$Event['group_id']}-1")==''){
     $a = getData("repeat/{$Event['group_id']}-2");

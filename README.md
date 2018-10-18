@@ -1,6 +1,6 @@
 # kjBot [![Maintainability](https://api.codeclimate.com/v1/badges/4b1d92da794a35538812/maintainability)](https://codeclimate.com/github/kj415j45/kjBot/maintainability) [![Latest Stable Version](https://poser.pugx.org/kj415j45/kjbot/v/stable)](https://packagist.org/packages/kj415j45/kjbot) [![Total Downloads](https://poser.pugx.org/kj415j45/kjbot/downloads)](https://packagist.org/packages/kj415j45/kjbot) [![License](https://poser.pugx.org/kj415j45/kjbot/license)](https://packagist.org/packages/kj415j45/kjbot) [![kjBot Dev 群](https://pub.idqqimg.com/wpa/images/group.png)](https://jq.qq.com/?_wv=1027&k=5ZDksTi)
 
-kjBot 是一个轻量级多功能的酷Q机器人框架。
+YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机器人框架。
 
 警告：本项目面向过程编写。
 
@@ -97,4 +97,4 @@ if(!fromGroup()){ //如果消息不是来自群聊
 
 ## LICENSE
 
-kjBot 框架及 SDK 均为 MIT 协议。但是模块与中间件均为 AGPL 协议，如果您希望闭源开发，请不要使用该项目提供的模块和中间件。
+YeziiBot 框架及 SDK 均为 MIT 协议。但是模块与中间件均为 AGPL 协议，如果您希望闭源开发，请不要使用该项目提供的模块和中间件。
