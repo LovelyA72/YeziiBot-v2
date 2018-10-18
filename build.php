@@ -20,4 +20,30 @@ count NOT NULL
 COMMIT;
 EOF;
 $db->query($sql);
+$db->close();
+
+$dbx = new SQLite3('storage/data/kjbot.db');
+
+$sqlx=<<<EOF
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE `credits` (
+	`qid`	INTEGER NOT NULL,
+	`coin`	INTEGER NOT NULL DEFAULT 0,
+	`xp`	INTEGER NOT NULL DEFAULT 0,
+	`lastcheck`	INTEGER NOT NULL DEFAULT 0,
+	`sc1`	INTEGER DEFAULT 0,
+	`sc2`	INTEGER DEFAULT 0,
+	PRIMARY KEY(`qid`)
+);
+CREATE TABLE `tickets` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`sender`	INTEGER NOT NULL,
+	`text`	TEXT NOT NULL,
+	`status`	INTEGER NOT NULL
+);
+COMMIT;
+EOF;
+$dbx->query($sqlx);
+$dbx->close();
 ?>
