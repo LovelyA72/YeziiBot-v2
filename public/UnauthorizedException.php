@@ -1,5 +1,5 @@
 <?php
-namespace YeziiBot\Framework;
+namespace kjBot\Frame;
 
 class UnauthorizedException extends \Exception{
     function __construct(){
@@ -7,3 +7,5 @@ class UnauthorizedException extends \Exception{
         $this->code=401;
     }
 }
+
+?>

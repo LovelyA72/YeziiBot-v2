@@ -1,6 +1,5 @@
-/vendor
-/storage
-/.idea
-
-LocalSettings.php
-public/php-error.log
+config.ini
+storage/
+vendor/
+composer-installer
+composer.phar

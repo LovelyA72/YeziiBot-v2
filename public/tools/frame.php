@@ -1,12 +1,8 @@
 <?php
 
-include("Message.php");
-include("messageSender.php");
-
-use YeziiBot\core\CQCode;
-use YeziiBot\Framework\Message;
-use YeziiBot\Framework\UnauthorizedException;
-
+use kjBot\SDK\CQCode;
+use kjBot\Frame\Message;
+use kjBot\Frame\UnauthorizedException;
 
 /**
  * 读取配置文件
@@ -34,7 +30,7 @@ function config(string $key, string $defaultValue = NULL):?string{
 function sendPM(string $msg, bool $auto_escape = false, bool $async = false):Message{
     global $Event;
 
-    return new Message($msg, $Event['user_id'], false);
+    return new Message($msg, $Event['user_id'], false, $auto_escape, $async);
 }
 
 /**
@@ -147,14 +143,14 @@ function loadModule(string $module){
         $moduleFile.='.php';
     }
 
-    if(file_exists('../skills/'.$moduleFile)){
-        if(config('recordStat', 'true')){
+    if(file_exists('../module/'.$moduleFile)){
+        if(config('recordStat', 'true')=='true'){
             if(strpos($module, '.tools')===false && strpos($module, 'recordStat')===false){ //防止记录工具类模块
                 global $Event;
                 addCommandCount($Event['user_id'], $module);
             }
         }
-        require('../skills/'.$moduleFile);
+        require('../module/'.$moduleFile);
     }else{
         if(strpos($module, 'help')!==0){ //防止无限尝试加载help
             try{
@@ -207,6 +203,7 @@ function nextArg(){
 
     return $Command[$index++];
 }
+
 /**
  * 冷却
  * 不指定冷却时间时将返回与冷却完成时间的距离，大于0表示已经冷却完成
@@ -255,15 +252,13 @@ function leave($msg = '', $code = 0){
  * @return bool
  */
 function inBlackList($qq):bool{
-    $blackList = getData('blacklist.json');
-    if($blackList === false)return false; //无法打开黑名单时不再抛异常
-    $blackList = json_decode($blackList)->list;
-    foreach($blackList as $person){
-        if($qq == $person->id){
-            return true;
-        }
+    $blackList = getData('black.txt');
+    if($blackList === false)leave('无法打开黑名单');
+    if(strpos($blackList, ''.$qq) !== false){
+        return true;
+    }else{
+        return false;
     }
-    return false;
 }
 
 function block($qq){

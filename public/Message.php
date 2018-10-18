@@ -1,24 +1,27 @@
 <?php
-namespace YeziiBot\Framework;
+namespace kjBot\Frame;
 
 class Message{
-    public $text;
+
+    public $msg;
     public $id;
-    public $isGroup;
+    public $toGroup;
     public $auto_escape;
     public $async;
 
-    /*
-    * @param string $text 消息的内容
-    * @param string|int $id 群号/用户qq号
-    * @param bool $isGroup 若为true（默认）则发到对应群中，否则发到用户
-    */
-    public function __construct(string $text,$id,bool $isGroup=true, bool $auto_escape = false, bool $async = false){
-        $this->$text = $text;
-        $this->$id = $id;
-        $this->$isGroup = $isGroup;
-        $this->$auto_escape = $auto_escape;
-        $this->$async = $async;
+    /**
+     * @param string $msg 消息内容
+     * @param string|int $id QQ(群)号
+     * @param bool $toGroup true->发到群里(默认值), false->发私聊
+     * @param bool $auto_escape 是否发送纯文本（默认解析CQ码）
+     * @param bool $async 是否异步发送（默认不异步）
+     */
+    function __construct(string $msg, $id, bool $toGroup = true, bool $auto_escape = false, bool $async = false){
+        $this->msg = $msg;
+        $this->id = $id;
+        $this->toGroup = $toGroup;
+        $this->auto_escape = $auto_escape;
+        $this->async = $async;
     }
 
 }
