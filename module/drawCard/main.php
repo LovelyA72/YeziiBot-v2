@@ -1,4 +1,24 @@
 <?php
+//-----------------------------------------------------------------------
+
+//    Copyright (c) 2017-2018 TEAM A72
+
+//    This file is part of YeziiBot. YeziiBot is distributed with the hope of
+//    attracting more community contributions to the core ecosystem 
+//    of the HeXiaoling Project.
+
+//    YeziiBot is free software: you can redistribute it and/or modify
+//    it under the terms of the Affero GNU General Public License version 3
+//    as published by the Free Software Foundation.
+
+//    YeziiBot is distributed WITHOUT ANY WARRANTY; without even the implied
+//    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//    See the GNU Affero General Public License for more details.
+
+//    You should have received a copy of the GNU Affero General Public License
+//    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
+
+//-----------------------------------------------------------------------
 
 global $Queue,$Event,$Command;
 
@@ -25,7 +45,7 @@ $prize_arr = array(
 
 
 /*
- * 对数组进行处理
+ * 对数组进行处�?
  */
 
 foreach( $prize_arr as $k => $v ){
@@ -34,18 +54,18 @@ foreach( $prize_arr as $k => $v ){
 
 function get_rand($item){
 
-    $num = array_sum($item);//计算出分母200
+    $num = array_sum($item);//计算出分�?00
 
     foreach( $item as $k => $v ){
      
-      $rand = mt_rand(1, $num);//概率区间(整数) 包括1和200
+      $rand = mt_rand(1, $num);//概率区间(整数) 包括1�?00
       if( $rand <= $v ){
-          //循环遍历,当下标$k = 1的时候，只有$rand = 1 才能中奖 
+          //循环遍历,当下�?k = 1的时候，只有$rand = 1 才能中奖 
           $result = $k;
           //echo $rand.'--'.$v;
           break;
       }else{
-          //当下标$k=6的时候，如果$rand>100 必须$rand < = 100 才能中奖 ，那么前面5次循环之后$rand的概率区间= 200-1-5-10-24-60 （1,100） 必中1块钱
+          //当下�?k=6的时候，如果$rand>100 必须$rand < = 100 才能中奖 ，那么前�?次循环之�?rand的概率区�? 200-1-5-10-24-60 �?,100�?必中1块钱
           $num-=$v;
           //echo '*'.$rand.'*'."&ensp;"."&ensp;"."&ensp;";
       }
