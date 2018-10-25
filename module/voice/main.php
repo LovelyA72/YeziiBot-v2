@@ -37,13 +37,13 @@ $client = new AipSpeech($aid, $akey, $atok);
 
 $hash = $Event['message_id'];
 setCache($hash.'.txt', removeCQCode(removeEmoji($Text)));
-$result = $client->synthesis(file_get_contents("C:/BotQQ/kjbot/storage/cache/{$hash}.txt"), 'zh', 1, array(
+$result = $client->synthesis(file_get_contents("../storage/cache/{$hash}.txt"), 'zh', 1, array(
     'vol' => 5,
 	'pit' => 6,
 	'spd' => 6,
 ));
 if(!is_array($result)){
-    file_put_contents("C:/BotQQ/kjbot/storage/cache/{$hash}.mp3", $result);
+    file_put_contents("../storage/cache/{$hash}.mp3", $result);
 }
 
 
