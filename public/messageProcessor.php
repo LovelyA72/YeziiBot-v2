@@ -7,7 +7,7 @@ function isIgnoreGroup($groupID,$ignoreList){
     }
     return false;
 }
-$ignList=Array("788134597");
+$ignList=Array("0");
 if(isIgnoreGroup($Event["group_id"],$ignList)){
     throw new \Exception();
 }
