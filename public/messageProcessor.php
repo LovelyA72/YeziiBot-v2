@@ -6,6 +6,9 @@ if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
     $Command = parseCommand(substr($Event['message'], strlen($prefix[1])-1, $length));
     $Text = substr($Event['message'], $length+2);
     try{
+        if($Event["user_id"]==80000000){
+            throw new \Exception("请不要使用匿名帐号！");
+        };
 		generalCheck($Event['user_id']);
         loadModule(substr(nextArg(), strlen($prefix[1])));
     }catch(\Exception $e){
