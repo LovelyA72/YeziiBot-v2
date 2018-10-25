@@ -37,7 +37,7 @@ function levelCalc($score)
 
 $levelName = Array("似曾相识","熟悉面孔","游戏好友","看番朋友","死宅姬友","四斋蒸鹅心");
 
-$levelDescription = Array("","","","","","");
+$levelDescription = Array("好像在哪里见过你呢？你好啊！","是你啊！今天心情怎么样啊？可以和我聊聊哦！","今晚继续开黑吧！和你玩游戏超开心的！","嗨~ Kalikali上的新番看了吗？没有吗？那一起看吧！","","");
 
 $qid = $Event['user_id'];
 $credit = getCredit($qid);
