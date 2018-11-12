@@ -32,6 +32,6 @@ if($tid==null){
 }
 $content = dbRunQueryReturn("SELECT * FROM tickets WHERE status = 2");
 foreach ($content as $value) {
-	$message.=$value["text"].$value["sender"];
+	$message.=$value["text"].$value["sender"]."\n";
 }
-$Queue[]= sendBack();
+$Queue[]= sendBack($message);
