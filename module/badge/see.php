@@ -25,13 +25,8 @@ global $Queue, $Command, $Event;
 if($Event['group_id']!=570766502){
 	throw new \Exception("This function is not available in this group!");
 }
-
-$tid = (int)$Command[1];
-if($tid==null){
-	throw new \Exception("Xiaoling Ticketer v1.18g\n(c)2018 TEAM A72\n[ERROR] Missing ticket ID");
-}
 $content = dbRunQueryReturn("SELECT * FROM tickets WHERE status = 2");
 foreach ($content as $value) {
-	$message.=$value["text"].$value["sender"]."\n";
+	$message.=$value["text"]." ".$value["sender"]."\n";
 }
 $Queue[]= sendBack($message);
