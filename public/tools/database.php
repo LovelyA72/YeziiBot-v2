@@ -38,10 +38,13 @@ function dbRunQueryReturn($query){
 	$ret = $db->query($query);
 	if($ret==null){
 		return;
-	}
-	$row = $ret->fetchArray(SQLITE3_ASSOC);
+    }
+    while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
+        $rowx[]=$row;
+     }
+	//$row = $ret->fetchArray(SQLITE3_ASSOC);
 	$db->close();
-	return $row;
+	return $rowx;
 }
 function directCredit($gqid){//will return int indicate which row that ID on.
     $db = new MyDB();

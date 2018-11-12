@@ -35,6 +35,6 @@ $text64 = base64_encode($Text);
 $sender = $Event['user_id'];
 dbRunQuery("INSERT INTO tickets (sender,text,status) VALUES ({$sender},'{$text64}',2)");
 
-$cid = dbRunQueryReturn("SELECT * FROM tickets ORDER BY id DESC LIMIT 1")['id'];
+$cid = dbRunQueryReturn("SELECT * FROM tickets ORDER BY id DESC LIMIT 1")[0]['id'];
 
 $Queue[]= sendBack("头衔申请提交成功！工单编号为{$cid}！");
