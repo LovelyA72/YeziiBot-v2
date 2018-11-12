@@ -27,6 +27,7 @@ if($Event['group_id']!=570766502){
 }
 $content = dbRunQueryReturn("SELECT * FROM tickets WHERE status = 2");
 foreach ($content as $value) {
-	$message.=$value["text"]." ".$value["sender"]."\n";
+	$post = base64_decode($value['text']);
+	$message.="头衔名:".$post."\n申请者:".$value["sender"]."\n----\n";
 }
 $Queue[]= sendBack($message);
