@@ -85,11 +85,12 @@ if(!fromGroup()){ //如果消息不是来自群聊
   - 本项目的起源
 - [kj415j45/jkBot](https://github.com/kj415j45/jkBot)
   - 本项目的零代
+- 框架作者
+  - [kj415j45](https://github.com/kj415j45)
 - 贡献者
   - [Cyanoxygen](https://github.com/Cyanoxygen)
   - [Baka-D](https://github.com/Baka-D)
   - [lslqtz](https://github.com/lslqtz)
-  - [LovelyA72](https://github.com/LovelyA72)
 
 ## LICENSE
 
