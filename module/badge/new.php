@@ -33,6 +33,9 @@ if($Text==null){
 }
 $text64 = base64_encode($Text);
 $sender = $Event['user_id'];
+if(sizeof(dbRunQueryReturn("SELECT * FROM tickets WHERE sender={$sender} AND status=2"))>0){
+	throw new \Exception("你已经有在等待状态的头衔了！如果长时间没处理，请联系群主");
+}
 dbRunQuery("INSERT INTO tickets (sender,text,status) VALUES ({$sender},'{$text64}',2)");
 
 $cid = dbRunQueryReturn("SELECT * FROM tickets ORDER BY id DESC LIMIT 1")[0]['id'];

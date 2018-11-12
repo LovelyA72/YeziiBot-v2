@@ -20,12 +20,11 @@
 
 //-----------------------------------------------------------------------
 
-
-global $Queue, $Command, $Event;
+global $Queue, $Command;
 requireMaster();
-$content = dbRunQueryReturn("SELECT * FROM tickets WHERE status = 2");
-foreach ($content as $value) {
-	$post = base64_decode($value['text']);
-	$message.="头衔名:".$post."\n工单号:".$value['id']."\n申请者:".$value['sender']."\n----\n";
-}
-$Queue[]= sendBack($message);
+
+$tid = (int)$Command[1];
+
+dbRunQuery("UPDATE tickets SET status = 1 WHERE id={$tid}");
+
+$Queue[] = sendBack("编号为{$tid}的工单已关闭");
