@@ -23,7 +23,7 @@
 
 
 function getCredit($QQ){
-	return dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$QQ}")['coin'];
+	return dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$QQ}")[0]['coin'];
     //return (int)getData("credit/{$QQ}");
 }
 

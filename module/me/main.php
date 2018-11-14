@@ -47,7 +47,7 @@ $levelDescription = Array("好像在哪里见过你呢？你好啊！"
 
 $qid = $Event['user_id'];
 $credit = getCredit($qid);
-$exp = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")['xp'];
+$exp = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
 $lv = levelCalc($exp);
 $message = "玩家ID: {$qid}
 金币: {$credit}G
