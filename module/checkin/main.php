@@ -28,7 +28,7 @@ $qid = $Event['user_id'];
 $income = rand(10, 25);
 $xpincome = rand(200, 450);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
-$lastCheckinTime=$content['lastcheck'];
+$lastCheckinTime=$content[0]['lastcheck'];
 if($lastCheckinTime>=date('ymd')){
     $Queue[]= sendBack('你今天签到过了');
 }else{
