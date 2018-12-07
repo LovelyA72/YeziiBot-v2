@@ -7,7 +7,7 @@ function isIgnoreGroup($groupID,$ignoreList){
     }
     return false;
 }
-$ignList=Array("0");
+$ignList=json_decode(file_get_contents("../storage/data/ignorelist.json"))["ignore"];
 if(isIgnoreGroup($Event["group_id"],$ignList)){
     throw new \Exception();
 }
