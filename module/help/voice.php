@@ -2,10 +2,10 @@
 
 global $Queue;
 
-$msg=<<<EOT
+$msg="
 让谷歌娘说话
 用法：
-!voice {语言代号}
+".config('prefix', '!')."voice {语言代号}
 {
     文本
 }
@@ -18,8 +18,7 @@ fr 法语
 ru 俄语
 es 西班牙语
 ar 阿拉伯语
-eo 世界语
-EOT;
+eo 世界语";
 
 $Queue[]= sendBack($msg);
 

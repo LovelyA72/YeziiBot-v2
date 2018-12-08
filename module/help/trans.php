@@ -1,9 +1,9 @@
 <?php
 
-leave(<<<EOT
+leave("
 使用谷歌翻译
 用法：
-!voice {源语言} {目标语言}
+".config('prefix', '!')."trans {源语言} {目标语言}
 {
     文本
 }
@@ -17,7 +17,6 @@ ru 俄语
 es 西班牙语
 ar 阿拉伯语
 eo 世界语
-EOT
-);
+");
 
 ?>

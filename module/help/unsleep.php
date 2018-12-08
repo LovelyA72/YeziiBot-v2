@@ -1,13 +1,12 @@
 <?php
 
 global $Queue;
-$msg=<<<EOT
+$msg="
 解除禁言
 用法：
-!unsleep {群号}
+".config('prefix', '!')."unsleep {群号}
 
-冷却时间为一天
-EOT;
+冷却时间为一天";
 
 $Queue[]= sendBack($msg);
 

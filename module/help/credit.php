@@ -1,7 +1,7 @@
 <?php
 
 global $Queue;
-$msg="kjBot金币 系列命令
+$msg="小綾币 系列命令
 用法：
 ".config('prefix')."credit
 ".config('prefix')."credit.{check|transfer} [参数列表]

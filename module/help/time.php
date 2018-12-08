@@ -1,13 +1,12 @@
 <?php
 
 global $Queue;
-$msg=<<<EOT
-让舰娘报告当前时间（东京时间）
+$msg="
+让何小绫cos舰娘来报告当前时间
 用法：
-!time
+".config('prefix', '!')."time
 
-台词会不定期更换 :)
-EOT;
+（默认台词为那珂）";
 
 $Queue[]= sendBack($msg);
 
