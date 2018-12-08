@@ -1,4 +1,5 @@
 <?php
+/*
 function isIgnoreGroup($groupID,$ignoreList){
     foreach ($ignoreList as $iid) {
         if($iid==$groupID){
@@ -10,7 +11,7 @@ function isIgnoreGroup($groupID,$ignoreList){
 $ignList=json_decode(file_get_contents("../storage/data/ignorelist.json"))["ignore"];
 if(isIgnoreGroup($Event["group_id"],$ignList)){
     throw new \Exception();
-}
+}*/
 if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
     $length = strpos($Event['message'], "\r");
     if(false===$length)$length=strlen($Event['message']);

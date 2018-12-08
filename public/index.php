@@ -11,6 +11,19 @@ try{
     if($listen !== NULL && ($Event['group_id'] == $listen || $listen == $Event['user_id'])){
         $Queue[]= sendMaster('['.date('Y-m-d H:i:s', $Event['time']-86400)."] {$Event['user_id']} say:\n{$Event['message']}", false, true);
     }
+    function isIgnoreGroup($groupID,$ignoreList){
+        foreach ($ignoreList as $iid) {
+            if($iid==$groupID){
+                return true;
+            }
+        }
+        return false;
+    }
+    $ignList=json_decode(file_get_contents("../storage/data/ignorelist.json"))["ignore"];
+    
+    if(isIgnoreGroup($Event["group_id"],$ignList)){
+        throw new \Exception();
+    }
 
     switch($Event['post_type']){
         case 'message':

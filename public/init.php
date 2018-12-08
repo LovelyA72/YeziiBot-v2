@@ -20,5 +20,4 @@ $Text = '';
 $StatDB = new SQLite3('../storage/data/stat.db');
 
 block($Event['user_id']);
-
 ?>
