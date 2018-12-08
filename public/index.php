@@ -6,14 +6,14 @@ require('init.php');
 
 use kjBot\Frame\Message;
 function isIgnoreGroup($groupID,$ignoreList){
-    foreach ($ignoreList as $iid) {
+    foreach ($ignoreList["ignore"] as $iid) {
         if($iid==$groupID){
             return true;
         }
     }
     return false;
 }
-$ignList=json_decode(file_get_contents("../storage/data/ignorelist.json"))->ignore;
+$ignList=(array)json_decode(file_get_contents("../storage/data/ignorelist.json"),true);
 try{
     $listen = config('Listen');
     if($listen !== NULL && ($Event['group_id'] == $listen || $listen == $Event['user_id'])){
