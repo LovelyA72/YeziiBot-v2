@@ -13,7 +13,7 @@ function isIgnoreGroup($groupID,$ignoreList){
     }
     return false;
 }
-$ignList=json_decode(file_get_contents("../storage/data/ignorelist.json"),true)["ignore"];
+$ignList=json_decode(file_get_contents("../storage/data/ignorelist.json"))->ignore;
 try{
     $listen = config('Listen');
     if($listen !== NULL && ($Event['group_id'] == $listen || $listen == $Event['user_id'])){
