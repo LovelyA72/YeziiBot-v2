@@ -5,23 +5,10 @@ if(function_exists('fastcgi_finish_request'))fastcgi_finish_request();
 require('init.php');
 
 use kjBot\Frame\Message;
-function isIgnoreGroup($groupID,$ignoreList){
-    foreach ($ignoreList["ignore"] as $iid) {
-        if($iid==$groupID){
-            return true;
-        }
-    }
-    return false;
-}
-$ignList=(array)json_decode(file_get_contents("../storage/data/ignorelist.json"),true);
 try{
     $listen = config('Listen');
     if($listen !== NULL && ($Event['group_id'] == $listen || $listen == $Event['user_id'])){
         $Queue[]= sendMaster('['.date('Y-m-d H:i:s', $Event['time']-86400)."] {$Event['user_id']} say:\n{$Event['message']}", false, true);
-    }
-    
-    if(isIgnoreGroup($Event["group_id"],$ignList)){
-        throw new \Exception();
     }
 
     switch($Event['post_type']){
