@@ -1,8 +1,9 @@
-# YeziiBot v2 [![CodeFactor](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2/badge)](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2) ![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102) [![License: AGPL v3](https://img.shields.io/badge/GNU-AGPL%20v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
+# YeziiBot v2 [![CodeFactor](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2/badge)](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2) ![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102) [![License: AGPL v3](https://img.shields.io/badge/GNU-AGPL%20v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0) [![推荐使用CoolQ Pro](https://img.shields.io/badge/CoolQ-PRO-Orange.svg)](https://cqp.me)
 
-YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机器人框架。
+YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机器人。
 
-警告：本项目面向过程编写。
+## 请使用CoolQ Pro
+本项目开发目标为CoolQ Pro。为获得最好的效果，请您使用CoolQ Pro运行本项目。[从这里购买属于你的酷Q Pro许可证！](https://cqp.me)
 
 ## 框架结构
 
