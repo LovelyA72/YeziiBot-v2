@@ -30,7 +30,10 @@ $xpincome = rand(200, 450);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
 if($lastCheckinTime>=date('ymd')){
-    $Queue[]= sendBack('你今天签到过了');
+    $Queue[]= sendBack(randomString(array(
+        "你今天签到过了！",
+        "是小绫记错了吗？不不不，你今天真的签到过了！",
+        "小绫我的记性都比你要好啾~你今天签到过啦！")));
 }else{
 	$incomex = $income/2;
 	$xpincomex = $xpincome/2;

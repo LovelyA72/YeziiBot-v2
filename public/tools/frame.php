@@ -264,3 +264,11 @@ function inBlackList($qq):bool{
 function block($qq){
     if(inBlackList($qq))throw new UnauthorizedException();
 }
+
+/**
+ * 随便挑一个回答
+ * @return string
+ */
+function randomString(array $stringArr){
+    return $stringArr[rand(0,sizeof($stringArr)-1)];
+}
