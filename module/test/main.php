@@ -3,6 +3,6 @@
 global $Queue, $Command;
 requireMaster();
 
-$Queue[]= sendBack(sendRec(getData("380545.mp3")));
+$Queue[]= sendBack(sendRec(getData("whistle.mp3")));
 
 ?>
