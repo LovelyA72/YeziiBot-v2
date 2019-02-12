@@ -46,6 +46,18 @@ function decCredit($QQ, $pay){
     }
 }
 
+function forceChange($qid,$amount){
+    //Force change a user's credit.
+    //When the user's credit is not enough, reset to 0.
+    //Ideal for random events module.
+    if(($amount<0)&&(dbRunQueryReturn("SELECT coin FROM credits WHERE qid={$qid}")<abs($amount))){
+        dbRunQuery("UPDATE credits SET coin=0 WHERE qid={$qid}");
+    }else{
+        $newCredit=dbRunQueryReturn("SELECT coin FROM credits WHERE qid={$qid}")+$amount;
+        dbRunQuery("UPDATE credits SET coin={$newCredit} WHERE qid={$qid}");
+    }
+}
+
 function transferCredit($from, $to, $transfer){
     decCredit($from, $transfer);
     addCredit($to, $transfer);
