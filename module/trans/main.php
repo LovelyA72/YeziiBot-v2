@@ -10,7 +10,7 @@ $target = nextArg();
 $trans = new GoogleTranslate();
 
 $nonoWords = "";
-function wordFliter($input,$words){
+function wordFilter($input,$words){
     $list = explode(",",words);
     foreach ($list as $value) {
         $input = str_replace($value,"*",$input);
