@@ -278,7 +278,7 @@ function randomString(array $stringArr){
  * @return string
  */
 function wordFilter($input,$words){
-    $list = explode(",",words);
+    $list = explode(",",$words);
     foreach ($list as $value) {
         $input = str_replace(base64_decode($value),"*",$input);
     }
