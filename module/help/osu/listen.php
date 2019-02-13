@@ -2,11 +2,9 @@
 
 global $Queue;
 
-$msg=<<<EOT
-享受音乐
+$msg="享受音乐
 用法：
-!osu.listen {谱面集ID}
-EOT;
+".config('prefix')."osu.listen {谱面集ID}";
 
 $Queue[]= sendBack($msg);
 

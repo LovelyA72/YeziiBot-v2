@@ -1,10 +1,9 @@
 <?php
 
 global $Queue;
-$msg=<<<EOT
-在 Pixiv 上搜图
+$msg="在 Pixiv 上搜图
 用法：
-!pixiv.search [参数] {关键字}
+".config('prefix')."pixiv.search [参数] {关键字}
 
 可用参数：
 
@@ -13,8 +12,7 @@ $msg=<<<EOT
 - x    x 为当前页码中第几张图，超出范围时该参数不生效
 
 搜索时会提示你关键字的结果数与相关信息。
-一页最多有40张图，将会从中随机返回一张。
-EOT;
+一页最多有40张图，将会从中随机返回一张。";
 
 $Queue[]= sendBack($msg);
 
