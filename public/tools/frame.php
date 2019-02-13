@@ -272,3 +272,15 @@ function block($qq){
 function randomString(array $stringArr){
     return $stringArr[rand(0,sizeof($stringArr)-1)];
 }
+
+/**
+ * 词语过滤
+ * @return string
+ */
+function wordFilter($input,$words){
+    $list = explode(",",words);
+    foreach ($list as $value) {
+        $input = str_replace(base64_decode($value),"*",$input);
+    }
+    return $input;
+}
