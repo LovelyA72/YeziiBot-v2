@@ -9,6 +9,9 @@ $trans = new GoogleTranslate();
 //if($source==$target){
 //    throw new \Exception("");
 //}
+if($source==$target){
+    throw new \Exception($Text);
+}
 
 $result = $trans->translate($source, $target, $Text);
 //if($result==$Text){
