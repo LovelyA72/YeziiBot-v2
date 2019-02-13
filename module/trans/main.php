@@ -10,13 +10,13 @@ $trans = new GoogleTranslate();
 //    throw new \Exception("");
 //}
 if($source==$target){
-    leave($Text);
+    leave("翻译的结果：\n".$Text);
 }
 
 $result = $trans->translate($source, $target, $Text);
 //if($result==$Text){
 //    throw new \Exception("");
 //}
-$Queue[]= sendBack($result);
+$Queue[]= sendBack("翻译的结果：\n".$result);
 
 ?>
