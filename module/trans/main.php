@@ -10,7 +10,7 @@ $trans = new GoogleTranslate();
 //    throw new \Exception("");
 //}
 if($source==$target){
-    throw new \Exception($Text);
+    leave($Text);
 }
 
 $result = $trans->translate($source, $target, $Text);
