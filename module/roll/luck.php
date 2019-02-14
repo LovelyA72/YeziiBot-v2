@@ -20,8 +20,7 @@ global $Queue;
 $lines = explode("\n",file_get_contents("../module/roll/str.txt"));
 for($i = 0;$i<sizeof($lines);$i++){
    if(substr($lines[$i],0,1)=="#"){
-       unset($lines[$i]);
+       array_splice($lines, $i, $i);
    } 
 }
-$lines = array_values($lines);
 $Queue[] = sendBack(randomString($lines));
