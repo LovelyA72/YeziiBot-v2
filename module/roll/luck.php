@@ -2,6 +2,6 @@
 
 global $Queue;
 
-$lines = explode("\n",file_get_contents("../modules/roll/str.txt"));
+$lines = explode("\n",file_get_contents("../module/roll/str.txt"));
 
 $Queue[] = sendBack(randomString($lines));
