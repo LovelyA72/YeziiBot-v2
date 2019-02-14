@@ -23,4 +23,5 @@ for($i = 0;$i<sizeof($lines);$i++){
        unset($lines[$i]);
    } 
 }
+$lines = array_values($lines);
 $Queue[] = sendBack(randomString($lines));
