@@ -30,10 +30,10 @@ if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
     $Message = $Event['message'];
     $botName = "小绫";
     //是否有在叫bot名字
-    if(substr($Message,0,2)==$botName){
+    if(mb_substr($Message,0,2)==$botName){
         //将Message前面的东西去掉
-        $Message = substr($Message,strlen($botName)+1);
-        require("../namedEvent/Chain.php");
+        $Message =mb_substr($Message,mb_strlen($botName));
+        require("../namedEvent/hello.php");
     }else {
         //没有的话就进入中间件处理
         require('../middleWare/Chain.php');
