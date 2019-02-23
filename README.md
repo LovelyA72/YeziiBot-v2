@@ -35,15 +35,6 @@ YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机�
 
 ### 快速安装
 
-如果你安装有 composer
-```sh
-mkdir kjBot/
-composer create-project kj415j45/kjbot ./kjBot
-cd kjBot/
-./build.sh
-```
-
-如果没有
 ```sh
 git clone https://github.com/kj415j45/kjBot.git
 cd kjBot/
@@ -95,4 +86,4 @@ if(!fromGroup()){ //如果消息不是来自群聊
 
 ## LICENSE
 
-YeziiBot 框架及 SDK 均为 MIT 协议。但是模块与中间件均为 AGPL 协议，如果您希望闭源开发，请不要使用该项目提供的模块和中间件。
+除非文件内另有声明，YeziiBot 框架及 SDK 均为 MIT 协议。但是模块与中间件均为 AGPL 协议，如果您希望闭源开发，请不要使用该项目提供的模块和中间件。
