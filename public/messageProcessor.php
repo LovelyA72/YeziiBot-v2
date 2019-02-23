@@ -34,7 +34,7 @@ if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
         //将Message前面的东西去掉
         $Message = mb_substr($Message,mb_strlen($botName));
         $Message = str_replace(" ","",$Message);
-        require("../namedEvent/hello.php");
+        require("../namedEvent/Chain.php");
     }else {
         //没有的话就进入中间件处理
         require('../middleWare/Chain.php');
