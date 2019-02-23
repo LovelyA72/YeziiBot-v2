@@ -24,6 +24,10 @@ global $Event, $Queue, $Text;
 require_once 'AipSpeech.php';
 loadModule('credit.tools');
 
+if(strlen($Text)==0){
+	throw new \Exception("错误：缺少合成文字");
+}
+
 $aid = config('bd_app_id');
 $akey = config('bd_api_key');
 $atok = config('bd_api_token');
