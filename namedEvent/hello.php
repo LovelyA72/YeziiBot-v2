@@ -2,4 +2,6 @@
 
 global $Message, $Queue;
 
-$Queue[]=sendBack("小綾在哟~");
+if ($Message=='') {
+    $Queue[]=sendBack("小綾在哟~");
+}
