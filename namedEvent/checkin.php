@@ -2,6 +2,6 @@
 
 global $Message, $Queue;
 
-if($Message=="签到"){
+if(preg_match('/^签到$/', $Message)){
     loadModule('checkin');
 }

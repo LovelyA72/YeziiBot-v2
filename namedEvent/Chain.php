@@ -3,7 +3,8 @@ global $Queue;
 
 //启用的模组应该放在这里，需添加.php后缀
 $procedure = Array(
-    "hello.php"
+    "hello.php",
+    "checkin.php"
 );
 
 $prevQueue = sizeof($Queue);
