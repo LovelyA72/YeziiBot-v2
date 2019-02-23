@@ -28,10 +28,11 @@ if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
     }
 }else{ //不是命令
     $Message = $Event['message'];
+    $botName = "小绫";
     //是否有在叫bot名字
-    if(substr($Message,0,2)==config('botName','小绫')){
+    if(substr($Message,0,2)==$botName){
         //将Message前面的东西去掉
-        $Message = substr($Message,strlen(config('botName','小绫'))-1);
+        $Message = substr($Message,strlen($botName)+1);
         require("../namedEvent/Chain.php");
     }else {
         //没有的话就进入中间件处理
