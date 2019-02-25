@@ -19,19 +19,8 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
-global $Queue;
+global $Message, $Queue;
 
-//启用的模组应该放在这里，需添加.php后缀
-$procedure = Array(
-    "hello.php",
-    "checkin.php",
-    "me.php",
-    "drawcard.php"
-);
-
-$prevQueue = sizeof($Queue);
-foreach ($procedure as $file) {
-    if((sizeof($Queue)<=$prevQueue)&&(mb_strlen($file)>0)){
-        require($file);
-    }
+if(preg_match('/^状态$/', $Message)){
+    loadModule('me');
 }
