@@ -1,5 +1,7 @@
 # YeziiBot v2 [![CodeFactor](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2/badge)](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2) [![License: AGPL v3](https://img.shields.io/badge/GNU-AGPL%20v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0) [![推荐使用CoolQ Pro](https://img.shields.io/badge/CoolQ-PRO-Orange.svg)](https://cqp.me)
 
+![YeziiBot_banner](readme_img.jpg)
+
 YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机器人。
 
 ## 请使用CoolQ Pro
