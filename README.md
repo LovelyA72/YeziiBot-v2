@@ -69,6 +69,10 @@ if(!fromGroup()){ //如果消息不是来自群聊
 
 参考 `module/` 文件夹下的其他模块
 
+## 代码要求
+1. 无论pr在任何目录的文件(新建或修改)，请添加```YeziiBot-v2.licenseheader```里面的许可证文字到文件的头部
+2. 使用```?>```在文件尾部关闭```<?php```是不被推荐的
+
 ## 感谢
 
 - [richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)
