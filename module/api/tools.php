@@ -26,6 +26,10 @@ function getAPIKey(int $qid):string{
 
 function newAPIKey(int $qid):string{
     $key = hash("haval128,3",microtime().rand(1000, 9999));
-    dbRunQueryReturn("UPDATE credits SET api_key = \"{$key}\" WHERE qid = {$qid}");
+    try {
+        dbRunQueryReturn("UPDATE credits SET api_key = \"{$key}\" WHERE qid = {$qid}");
+    } catch (\Exception $ex) {
+        throw $ex;
+    }
     return $key;
 }
