@@ -25,7 +25,7 @@ global $Message, $Queue;
 if(sizeof($Queue)==0) {
     $question = base64_encode($Message);
 
-    $answer = base64_decode(dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\"")[0]["answer"]);
+    $answer = base64_decode(dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\" AND status = 0")[0]["answer"]);
     if($answer!=""){
         $Queue[] = sendBack($answer);
     }else{
