@@ -29,6 +29,7 @@ if(sizeof($Queue)==0) {
     if($answer!=""){
         $Queue[] = sendBack($answer);
     }else{
+        return;
         $Queue[]=sendBack(randomString(Array(
             "诶呀，我没主意了，怎么办呢...",
             "我还不知道怎么回答呢..."
