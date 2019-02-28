@@ -63,6 +63,12 @@ CREATE TABLE `tickets` (
 	`text`	TEXT NOT NULL,
 	`status`	INTEGER NOT NULL
 );
+CREATE TABLE "replies" (
+	"question"	TEXT NOT NULL,
+	"answer"	TEXT NOT NULL,
+	"status"	INTEGER NOT NULL DEFAULT 1,
+	PRIMARY KEY("question")
+);
 COMMIT;
 EOF;
 $dbx->query($sqlx);

@@ -22,9 +22,16 @@
 
 global $Message, $Queue;
 
-if (sizeof($Queue)==0) {
-    $Queue[]=sendBack(randomString(Array(
-                "emmmmm,有趣,我很希望我知道如何回答",
-                "我还不知道怎么回答呢..."
-            )));
+if(sizeof($Queue)==0) {
+    $question = base64_encode($Message);
+
+    $answer = base64_decode(dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\"")[0]["answer"]);
+    if($answer!=""){
+        $Queue[] = sendBack($answer);
+    }else{
+        $Queue[]=sendBack(randomString(Array(
+            "emmmmm,有趣,我很希望我知道如何回答",
+            "我还不知道怎么回答呢..."
+        )));
+    }
 }
