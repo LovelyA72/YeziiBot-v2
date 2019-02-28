@@ -19,21 +19,12 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
-global $Queue;
 
-//启用的模组应该放在这里，需添加.php后缀
-$procedure = Array(
-    "hello.php",
-    "checkin.php",
-    "me.php",
-    "drawcard.php",
-    //实在不行了就进commonReplies.php获得一个固定的回答
-    "commonReplies.php"
-);
+global $Queue,$Message,$Event;
 
-$prevQueue = sizeof($Queue);
-foreach ($procedure as $file) {
-    if((sizeof($Queue)<=$prevQueue)&&(mb_strlen($file)>0)){
-        require($file);
-    }
-}
+include("tools.php");
+
+$key = getAPIKey($Event['user_id']);
+
+$Queue[] = sendBack("API Key请看私聊");
+$Queue[] = sendPM("你的API Key是\'".$key."\'。请用你对待你的密码的方式对待这串API Key！（不要告诉任何人）");

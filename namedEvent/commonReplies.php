@@ -19,21 +19,12 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
-global $Queue;
 
-//启用的模组应该放在这里，需添加.php后缀
-$procedure = Array(
-    "hello.php",
-    "checkin.php",
-    "me.php",
-    "drawcard.php",
-    //实在不行了就进commonReplies.php获得一个固定的回答
-    "commonReplies.php"
-);
+global $Message, $Queue;
 
-$prevQueue = sizeof($Queue);
-foreach ($procedure as $file) {
-    if((sizeof($Queue)<=$prevQueue)&&(mb_strlen($file)>0)){
-        require($file);
-    }
+if (sizeof($Queue)==0) {
+    $Queue[]=sendBack(randomString(Array(
+                "emmmmm,有趣,我很希望我知道如何回答",
+                "我还不知道怎么回答呢..."
+            )));
 }

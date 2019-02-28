@@ -19,21 +19,13 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
-global $Queue;
 
-//启用的模组应该放在这里，需添加.php后缀
-$procedure = Array(
-    "hello.php",
-    "checkin.php",
-    "me.php",
-    "drawcard.php",
-    //实在不行了就进commonReplies.php获得一个固定的回答
-    "commonReplies.php"
-);
+function getAPIKey(int $qid):string{
+    return dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['api_key'];
+}
 
-$prevQueue = sizeof($Queue);
-foreach ($procedure as $file) {
-    if((sizeof($Queue)<=$prevQueue)&&(mb_strlen($file)>0)){
-        require($file);
-    }
+function newAPIKey(int $qid):string{
+    $key = hash("haval128,3",microtime().rand(1000, 9999));
+    dbRunQueryReturn("UPDATE credits SET api_key = {$key} WHERE qid = {$qid}");
+    return $key;
 }
