@@ -27,4 +27,4 @@ include("tools.php");
 $key = getAPIKey($Event['user_id']);
 
 $Queue[] = sendBack("API Key请看私聊");
-$Queue[] = sendPM("你的API Key是\'".$key."\'。请用你对待你的密码的方式对待这串API Key！（不要告诉任何人）");
+$Queue[] = sendPM("你的API Key是'".$key."'。请用你对待你的密码的方式对待这串API Key！（不要告诉任何人）");
