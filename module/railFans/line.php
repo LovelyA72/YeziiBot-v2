@@ -41,4 +41,4 @@ for($j=0;$j<sizeof($final);$j++){
         $result = $result.$final[$j];
     }
 }
-$Queue[]=sendBack("已生成包含{$Command[1]}个站点的虚拟线路: }\n".$result);
+$Queue[]=sendBack("已生成包含{$Command[1]}个站点的虚拟线路: \n".$result);
