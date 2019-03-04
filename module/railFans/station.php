@@ -22,9 +22,9 @@
 
 global $Queue,$Command;
 
-$suffixes = Array("港","村","广场","公园","新城","新区","机场","国际机场","火车站","高铁站","中心","城南","城北","东路","西路","南站","北站","中路","桥","客运站");
+$suffixes = Array("港","村","广场","公园","新城","新区","机场","国际机场","火车站","高铁站","中心","城南","城北","东路","城西路","城东路","西路","南站","北站","中路","桥","客运站");
 $existStations = explode("\r\n",file_get_contents("../module/railFans/stations.txt"));
-$wordCount = rand(2,3);
+$wordCount = rand(1,3);
 $prefix = "";
 for($i=0;$i<$wordCount;$i++){
     $prefix = $prefix.mb_substr(randomString($existStations),0,1);
