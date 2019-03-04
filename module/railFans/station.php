@@ -26,8 +26,8 @@ $suffixes = Array("港","村","广场","公园","新城","新区","机场","国�
 $existStations = explode("\r\n",file_get_contents("../module/railFans/stations.txt"));
 $wordCount = rand(2,3);
 $prefix = "";
-for($i=0;i<$wordCount;$i++){
-    $prefix = $prefix.substr(randomString($existStations),0,1);
+for($i=0;$i<$wordCount;$i++){
+    $prefix = $prefix.mb_substr(randomString($existStations),0,1);
 }
 $result = $prefix.randomString($suffixes);
 
