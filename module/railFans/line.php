@@ -25,6 +25,9 @@ global $Queue,$Command;
 if($Command[1]>30){
     throw new Exception("不能超过30站哦！");
 }
+if($Command[1]<3){
+    throw new Exception("至少要有三个站哦！");//对下面添加箭头bug的粗暴解决方案，但是不能依赖
+}
 $stations = explode("\r\n",file_get_contents("../module/railFans/stations.txt"));
 for($i=0;$i<$Command[1];$i++){
     $index = rand(0,sizeof($stations)-1);
