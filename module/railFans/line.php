@@ -20,12 +20,12 @@
 
 //-----------------------------------------------------------------------
 
-global $Queue,$Version;
+global $Queue,$Command;
 
-if($Command[1]>20){
-    throw new Exception("不能超过20站哦！");
+if($Command[1]>30){
+    throw new Exception("不能超过30站哦！");
 }
-$stations = explode("\r\n",file_get_contents("stations.txt"));
+$stations = explode("\r\n",file_get_contents("../module/railFans/stations.txt"));
 for($i=0;$i<$Command[1];$i++){
     $index = rand(0,sizeof($stations)-1);
     $final[] = $stations[$index];
@@ -41,4 +41,4 @@ for($j=0;$j<sizeof($final);$j++){
         $result = $result.$final[$j];
     }
 }
-$Queue[]=sendBack($result);
+$Queue[]=sendBack("已生成包含{$Command[1]}个站点的虚拟线路: }\n".$result);
