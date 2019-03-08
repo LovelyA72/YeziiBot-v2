@@ -53,6 +53,9 @@ if($lastCheckinTime>=$today){
             case 2:
             $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');
                 break;
+            case 3:
+            $Queue[]= sendBack('来，给小綾唱段歌，就给你签到~（坏笑）');
+                break;
             default:
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today} WHERE qid = {$qid}");
             $Queue[]= sendBack('签到成功~ 可惜找不到金币和经验值了... 那就这样吧！（逃）');
