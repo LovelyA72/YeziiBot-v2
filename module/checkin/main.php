@@ -47,10 +47,12 @@ if($lastCheckinTime>=$today){
         $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
     }else{
         switch (rand(1,5)) {
-            // case 1:
-            //     # code...
-            //     break;
-            
+            case 1:
+            $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');
+                break;
+            case 2:
+            $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');
+                break;
             default:
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today} WHERE qid = {$qid}");
             $Queue[]= sendBack('签到成功~ 可惜找不到金币和经验值了... 那就这样吧！（逃）');
