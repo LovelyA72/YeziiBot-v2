@@ -29,7 +29,8 @@ $income = rand(10, 25);
 $xpincome = rand(200, 450);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
-if($lastCheckinTime>=date('ymd')){
+$today = date('ymd');
+if($lastCheckinTime>=$today){
     $Queue[]= sendBack(randomString(array(
         "你今天签到过了！",
         "是小绫记错了吗？不不不，你今天真的签到过了！",
@@ -39,10 +40,22 @@ if($lastCheckinTime>=date('ymd')){
         "呜～签到失败了....人家该如何是好啊...（慌慌张张）明天再来吧！",
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
-	$incomex = $income/2;
-	$xpincomex = $xpincome/2;
-	$today = date('ymd');
-    dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
-    $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+	if(rand(1,20)<17){
+        $incomex = $income/2;
+	    $xpincomex = $xpincome/2;
+        dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
+        $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+    }else{
+        switch (rand(1,5)) {
+            // case 1:
+            //     # code...
+            //     break;
+            
+            default:
+            dbRunQueryReturn("UPDATE credits SET lastcheck = {$today} WHERE qid = {$qid}");
+            $Queue[]= sendBack('签到成功~ 可惜找不到金币和经验值了... 那就这样吧！（逃）');
+                break;
+        }
+    }
 }
 ?>
