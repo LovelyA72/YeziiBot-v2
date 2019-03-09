@@ -40,7 +40,7 @@ if($lastCheckinTime>=$today){
         "呜～签到失败了....人家该如何是好啊...（慌慌张张）明天再来吧！",
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
-	if(rand(1,20)<17){
+	if(rand(1,20)<12){
         $incomex = $income/2;
 	    $xpincomex = $xpincome/2;
         dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
