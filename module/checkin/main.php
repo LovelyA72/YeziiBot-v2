@@ -53,7 +53,7 @@ if($lastCheckinTime>=$today){
                 $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');
                 break;
             case 2:
-                $Queue[]= sendBack('签... 这笔没水了？主人不在耶...（转到后面）kj你的有笔有水吗？');
+                $Queue[]= sendBack('签... 这笔没水了？主人不在耶...（转到后面）kj你的笔有水吗？');
                 break;
             case 3:
                 $Queue[]= sendBack('来，给小綾唱段歌，就给你签到~（坏笑）');
