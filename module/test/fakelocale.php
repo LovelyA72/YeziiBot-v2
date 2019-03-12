@@ -20,8 +20,8 @@
 
 //-----------------------------------------------------------------------
 
-global $Queue,$Command;
+global $Queue,$Text;
 
 requireMaster();
 
-$Queue[] = sendBack(pseudolocalise($Command[1]));
+$Queue[] = sendBack(pseudolocalise($Text));
