@@ -30,7 +30,8 @@ $xpincome = rand(200, 450);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
 $today = date('ymd');
-$successRate = 85;
+//修改这个数值来更改成功几率(0-100)，数值越大，成功率越高
+$successRate = 92;
 
 if($lastCheckinTime>=$today){
     $Queue[]= sendBack(randomString(array(
