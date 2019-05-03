@@ -1,6 +1,7 @@
 <?php
 
 global $User_id;
+requireMaster();
 loadModule('credit.tools');
 
 if(trim(getData('recordStat/'.$User_id))!='true')leave();
