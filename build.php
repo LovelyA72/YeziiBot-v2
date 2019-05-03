@@ -55,6 +55,7 @@ CREATE TABLE "credits" (
 	"sc1"	INTEGER DEFAULT 0,
 	"sc2"	INTEGER DEFAULT 0,
 	"api_key"	TEXT UNIQUE,
+	"badge"	TEXT,
 	PRIMARY KEY("qid")
 );
 CREATE TABLE `tickets` (

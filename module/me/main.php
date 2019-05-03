@@ -51,6 +51,12 @@ generalCheck($qid);
 
 $credit = getCredit($qid);
 $exp = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
+$badges = explode(",",dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['badge']);
+$badgeCQCode="";
+if(true){
+    $badgeCQCode = "该玩家暂未获得或订制任何徽章";
+}
+
 $lv = levelCalc($exp);
 $message = "玩家ID: {$qid}
 金币: {$credit}G
@@ -89,6 +95,8 @@ if ($nextlv!=-1) {
 }else{
     $message .="\n祝贺一下！你是最高等级了！";
 }
+
+$message .= "\n徽章：".$badgeCQCode;
 
 $Queue[]= sendBack($message);
 ?>
