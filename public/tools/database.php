@@ -84,8 +84,7 @@ function createUser($qid){
         die();
     }
     $sql =<<<EOF
-      INSERT INTO credits (qid,coin,xp,lastCheck)
-      VALUES ($qid,0,0,0);
+    INSERT INTO credits (qid,coin,xp,lastCheck,sc1,sc2) VALUES ($qid,0,0,0,0,0);
 EOF;
     $ret = $db->exec($sql);
     return true;
