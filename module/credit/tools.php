@@ -33,7 +33,7 @@ function setCredit($QQ, $credit){
 }
 
 function addCredit($QQ, $income){
-	return  dbRunQueryReturn("UPDATE credits SET coin = coin+{$credit} WHERE qid = {$QQ}");
+	return  dbRunQueryReturn("UPDATE credits SET coin = coin+{$income} WHERE qid = {$QQ}");
     //return setCredit($QQ, getCredit($QQ)+(int)$income);
 }
 
