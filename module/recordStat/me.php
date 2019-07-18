@@ -14,6 +14,3 @@ if(fromGroup()){
 }else{
     $Queue[]= sendBack(getUserCommandCount($User_id, nextArg()));
 }
-
-
-?>
