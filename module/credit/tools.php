@@ -60,7 +60,7 @@ function forceChange($qid,$amount){
 
 function transferCredit($from, $to, $transfer){
     decCredit($from, $transfer);
-    addCredit($to, $transfer);
+    setCredit($to,getCredit($to)+$transfer);
 }
 
 ?>
