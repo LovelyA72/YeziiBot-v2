@@ -32,7 +32,7 @@ $aid = config('bd_app_id');
 $akey = config('bd_api_key');
 $atok = config('bd_api_token');
 $credit = strlen($Text);
-if(getCredit($Event['user_id'])-($credit*0.25)<=0){
+if(getCredit($Event['user_id'])-($credit*4)<=0){
 	$Queue[]= sendBack("金币不足！请使用%checkin签到获取金币");
 }else{
 
@@ -52,9 +52,9 @@ if(!is_array($result)){
 
 
 clearstatcache();
-decCredit($Event['user_id'],floor(($credit)*0.25));
+decCredit($Event['user_id'],floor(($credit)*4));
 $Queue[]= sendBack(sendRec(getCache($hash.'.mp3')));
-$Queue[]= sendBack('合成成功！长度'.$credit.'字节，扣取'.floor(($credit)*0.25) .'金币. 你还有'.getCredit($Event['user_id']).'金币');
+$Queue[]= sendBack('合成成功！长度'.$credit.'字节，扣取'.floor(($credit)*4) .'金币. 你还有'.getCredit($Event['user_id']).'金币');
 
 }
 ?>
