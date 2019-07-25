@@ -32,7 +32,7 @@ $aid = config('bd_app_id');
 $akey = config('bd_api_key');
 $atok = config('bd_api_token');
 $credit = strlen($Text);
-$creditTime = 3;
+$creditTime = 1.5;
 
 if(getCredit($Event['user_id'])-($credit*$creditTime)<=0){
 	$Queue[]= sendBack("金币不足！请使用%checkin签到获取金币");
