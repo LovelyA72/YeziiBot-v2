@@ -62,5 +62,3 @@ function transferCredit($from, $to, $transfer){
     decCredit($from, $transfer);
     setCredit($to,getCredit($to)+$transfer);
 }
-
-?>

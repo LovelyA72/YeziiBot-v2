@@ -8,5 +8,3 @@ if(fromGroup()){
 }else{
     $Queue[]= sendBack(getUserCommandCount(0, nextArg()));
 }
-
-?>
