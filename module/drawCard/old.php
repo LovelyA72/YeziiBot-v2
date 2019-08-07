@@ -54,26 +54,27 @@ foreach( $prize_arr as $k => $v ){
 
 function get_rand($item){
 
-    $num = array_sum($item);
+    $num = array_sum($item);//计算出分�?00
 
     foreach( $item as $k => $v ){
      
-      $rand = mt_rand(1, $num);
+      $rand = mt_rand(1, $num);//概率区间(整数) 包括1�?00
       if( $rand <= $v ){
+          //循环遍历,当下�?k = 1的时候，只有$rand = 1 才能中奖 
           $result = $k;
+          //echo $rand.'--'.$v;
           break;
       }else{
+          //当下�?k=6的时候，如果$rand>100 必须$rand < = 100 才能中奖 ，那么前�?次循环之�?rand的概率区�? 200-1-5-10-24-60 �?,100�?必中1块钱
           $num-=$v;
+          //echo '*'.$rand.'*'."&ensp;"."&ensp;"."&ensp;";
       }
     }
 
     return $result;
 }
 
-$balance = (int)(5+$totalDraw/8);
-decCredit($Event["user_id"], $balance);
-
-$message="模拟{$totalDraw}连抽！扣取{$balance}金币\n";
+$message="模拟{$totalDraw}连抽！\n";
 
 for($i=0;$i<$totalDraw;$i++){
 	$res = get_rand($item);
