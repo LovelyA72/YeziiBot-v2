@@ -29,7 +29,8 @@ $gid = (int)nextArg();
 
 if ($gid==0) {
     //禁止从php设置任何用户为超级管理员
-    throw new UnauthorizedException();
+    $Queue[]= sendBack("因为安全顾虑，禁止通过指令设置0级权限用户");
+    return;
 }
 
 dbRunQuery("INSERT OR IGNORE INTO global_special_users (qid,gid) VALUES ({$qid},{$gid})");
