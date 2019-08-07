@@ -221,7 +221,7 @@ class AipBase {
      * @return string
      */
     private function getAuthFilePath(){
-        return dirname(__FILE__) . DIRECTORY_SEPARATOR . md5($this->apiKey);
+        return dirname(__FILE__) . DIRECTORY_SEPARATOR . md5($this->apiKey).".bdvoice";
     }
 
     /**

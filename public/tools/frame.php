@@ -368,8 +368,11 @@ function pseudolocalise($input){
  * @param int $gid 要求的最低用户组
  */
 function requireGlobalUserGroup($gid){
-    $userResults = dbRunQueryReturn("SELECT * FROM global_user_group WHERE qid = {$QQ}");
-    if (sizeof($userGroup)<1) {
+    global $Event;
+
+    $QQ = $Event['user_id'];
+    $userResults = dbRunQueryReturn("SELECT * FROM global_special_users WHERE qid = {$QQ}");
+    if (sizeof($userResults)==0) {
         $userGroup = 20;
     }else {
         $userGroup = $userResults[0]['gid'];
