@@ -21,6 +21,7 @@
 //-----------------------------------------------------------------------
 
 global $Queue,$Event,$Command;
+loadModule('credit.tools');
 
 $year = date('Y');
 
