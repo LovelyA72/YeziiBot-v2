@@ -70,6 +70,10 @@ CREATE TABLE "replies" (
 	"status"	INTEGER NOT NULL DEFAULT 1,
 	PRIMARY KEY("question")
 );
+CREATE TABLE `global_special_users` (
+	`qid`	INTEGER NOT NULL,
+	`gid`	INTEGER NOT NULL
+);
 COMMIT;
 EOF;
 $dbx->query($sqlx);

@@ -363,3 +363,18 @@ function pseudolocalise($input){
     }
     return $input;
     }
+/**
+ * 要求特定的全局用户组
+ * @param int $gid 要求的最低用户组
+ */
+function requireGlobalUserGroup($gid){
+    $userResults = dbRunQueryReturn("SELECT * FROM global_user_group WHERE qid = {$QQ}");
+    if (sizeof($userGroup)<1) {
+        $userGroup = 20;
+    }else {
+        $userGroup = $userResults[0]['gid'];
+    }
+    if($userGroup>$gid){
+        throw new UnauthorizedException();
+    }
+}
