@@ -4,4 +4,5 @@ storage/
 vendor/
 composer-installer
 composer.phar
-.bdvoice
+*.bdvoice
+composer.lock
