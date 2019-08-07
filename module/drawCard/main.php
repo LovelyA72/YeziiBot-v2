@@ -33,6 +33,7 @@ if($totalDraw>100){
 	$Queue[]= sendBack("Xiaoling CDrawX V0.58a\n(c){$year} TEAM A72\n[Error] totalNumber: Value too big.");
 	return;
 }
+$costMoney = (int)(5+$totalDraw/8);
 
 $prize_arr = array(
     0=>array( 'id'=>1,'prize'=>'UR','v'=>50 ),
@@ -70,10 +71,9 @@ function get_rand($item){
     return $result;
 }
 
-$balance = (int)(5+$totalDraw/8);
-decCredit($Event["user_id"], $balance);
+decCredit($Event["user_id"], $costMoney);
 
-$message="模拟{$totalDraw}连抽！扣取{$balance}金币\n";
+$message="模拟{$totalDraw}连抽！扣取{$costMoney}金币\n";
 
 for($i=0;$i<$totalDraw;$i++){
 	$res = get_rand($item);
