@@ -8,8 +8,7 @@ switch($Event['request_type']){
                 $Queue[]= sendBack(config('WelcomeMsg')); //发送欢迎消息
             }
         }
-        $Queue[]= sendMaster('Being friends with '.$Event['user_id']); //通知master
-        
+        $Queue[]= sendMaster('Recieved a friend request from '.$Event['user_id']); //通知master
         break;
     case 'group':
         switch($Event['sub_type']){
