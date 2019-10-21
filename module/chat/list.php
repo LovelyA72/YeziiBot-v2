@@ -19,15 +19,15 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
+global $Message, $Queue, $Text, $Command;
 
-requireGlobalUserGroup(0);
-
-global $Queue;
-use kjBot\SDK\CQCode;
-
-$qid = parseQQ(nextArg());
-
-dbRunQuery("INSERT OR IGNORE INTO global_special_users (qid,gid) VALUES ({$qid},10)");
-dbRunQuery("UPDATE global_special_users SET gid = 10 WHERE qid = {$qid}");
-
-$Queue[]= sendBack("已设置".CQCode::At($qid)."为全局操作员！");
+$question =$Command[1];
+requireGlobalUserGroup(5);
+$answers = dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\" AND status = 0");
+$reply="问题\"{$question}\"的回答有:";
+$count = 1;
+foreach($answers as $ansstr){
+	$reply.="\n".$count.". ".$ansstr['answer'];
+	$count++;
+}
+$Queue[] = sendBack($reply);

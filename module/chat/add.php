@@ -20,14 +20,12 @@
 
 //-----------------------------------------------------------------------
 
+global $Message, $Queue, $Text, $Command;
+
 requireGlobalUserGroup(0);
 
-global $Queue;
-use kjBot\SDK\CQCode;
+$question = nextArg();
 
-$qid = parseQQ(nextArg());
-
-dbRunQuery("INSERT OR IGNORE INTO global_special_users (qid,gid) VALUES ({$qid},10)");
-dbRunQuery("UPDATE global_special_users SET gid = 10 WHERE qid = {$qid}");
-
-$Queue[]= sendBack("已设置".CQCode::At($qid)."为全局操作员！");
+dbRunQuery("INSERT INTO replies VALUES(\"{$question}\",\"{$Text}\",0)");
+$Queue[] = sendBack("添加成功");
+loadModule('chat.list');

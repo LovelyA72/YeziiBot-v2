@@ -20,14 +20,20 @@
 
 //-----------------------------------------------------------------------
 
-requireGlobalUserGroup(0);
-
-global $Queue;
-use kjBot\SDK\CQCode;
-
-$qid = parseQQ(nextArg());
-
-dbRunQuery("INSERT OR IGNORE INTO global_special_users (qid,gid) VALUES ({$qid},10)");
-dbRunQuery("UPDATE global_special_users SET gid = 10 WHERE qid = {$qid}");
-
-$Queue[]= sendBack("已设置".CQCode::At($qid)."为全局操作员！");
+global $Message, $Queue, $Command;
+$question = $Command[1];
+$answers = dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\" AND status = 0");
+$anss = Array();
+foreach($answers as $ansstr){
+	$anss[] = $ansstr["answer"];
+}
+$answer = randomString($anss);
+   if($answer!=""){
+       $Queue[] = sendBack($answer);
+   }else{
+       return;
+       $Queue[]=sendBack(randomString(Array(
+           "诶呀，我没主意了，怎么办呢...",
+           "我还不知道怎么回答呢..."
+       )));
+   }

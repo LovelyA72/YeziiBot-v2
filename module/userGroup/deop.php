@@ -23,10 +23,11 @@
 requireGlobalUserGroup(0);
 
 global $Queue;
+use kjBot\SDK\CQCode;
 
 $qid = parseQQ(nextArg());
 
 dbRunQuery("INSERT OR IGNORE INTO global_special_users (qid,gid) VALUES ({$qid},20)");
 dbRunQuery("UPDATE global_special_users SET gid = 20 WHERE qid = {$qid}");
 
-$Queue[]= sendBack("已撤除{$qid}的全局操作员！");
+$Queue[]= sendBack("已撤除".CQCode::At($qid)."的全局操作员！");

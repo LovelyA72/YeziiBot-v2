@@ -55,8 +55,19 @@ $credit = getCredit($qid);
 $exp = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
 $badges = explode(",",dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['badge']);
 $badgeCQCode="";
-if(true){
-    $badgeCQCode = "该玩家暂未获得或订制任何徽章";
+
+if(getGlobalUserGroup($qid)==0){
+    $badgeCQCode .= "\n根用户 - 有什么问题都找我吧！";
+}
+if(getGlobalUserGroup($qid)<=5){
+    $badgeCQCode .= "\n管理员 - 大家都要守规矩哦！";
+}
+if(getGlobalUserGroup($qid)<=10){
+    $badgeCQCode .= "\n全局操作员 - 权限就是比普通用户高！";
+}
+
+if($badgeCQCode==""){
+    $badgeCQCode .= "\n没有获得任何头衔哦~继续加油吧！";
 }
 
 $lv = levelCalc($exp);
@@ -98,7 +109,7 @@ if ($nextlv!=-1) {
     $message .="\n祝贺一下！你是最高等级了！";
 }
 
-$message .= "\n徽章：".$badgeCQCode;
+$message .= "\n头衔：".$badgeCQCode;
 
 $Queue[]= sendBack($message);
 ?>

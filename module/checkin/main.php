@@ -25,8 +25,8 @@ global $Event, $Queue;
 loadModule('credit.tools');
 
 $qid = $Event['user_id'];
-$income = rand(10, 25);
-$xpincome = rand(200, 450);
+$income = rand(15, 45);
+$xpincome = rand(150, 500);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
 $today = date('ymd');
@@ -44,8 +44,8 @@ if($lastCheckinTime>=$today){
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
 	if(rand(1,100)<$successRate){
-        $incomex = $income/2;
-	    $xpincomex = $xpincome/2;
+        $incomex = $income;
+	    $xpincomex = $xpincome;
         dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
         $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
     }else{

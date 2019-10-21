@@ -20,19 +20,10 @@
 
 //-----------------------------------------------------------------------
 
-global $Message, $Queue;
+global $Message, $Queue, $Command;
+
 
 if(sizeof($Queue)==0) {
-    $question = base64_encode($Message);
-
-    $answer = base64_decode(dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\" AND status = 0")[0]["answer"]);
-    if($answer!=""){
-        $Queue[] = sendBack($answer);
-    }else{
-        return;
-        $Queue[]=sendBack(randomString(Array(
-            "诶呀，我没主意了，怎么办呢...",
-            "我还不知道怎么回答呢..."
-        )));
-    }
+	$Command[1]=$Message;
+	loadModule('chat');
 }

@@ -381,3 +381,12 @@ function requireGlobalUserGroup($gid){
         throw new UnauthorizedException();
     }
 }
+function getGlobalUserGroup($qid){
+    $userResults = dbRunQueryReturn("SELECT * FROM global_special_users WHERE qid = {$qid}");
+    if (sizeof($userResults)==0) {
+        $userGroup = 20;
+    }else {
+        $userGroup = $userResults[0]['gid'];
+    }
+    return $userGroup;
+}
