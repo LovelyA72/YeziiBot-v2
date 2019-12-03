@@ -92,6 +92,14 @@ function setData(string $filePath, $data, bool $pending = false){
 function getData(string $filePath){
     return file_get_contents('../storage/data/'.$filePath);
 }
+/**
+ * 数据存在
+ * @param $filePath 相对于 storage/data/ 的路径
+ * @return bool
+ */
+function dataExists(string $filePath){
+    return file_exists('../storage/data/'.$filePath);
+}
 
 /**
  * 缓存

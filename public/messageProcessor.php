@@ -48,9 +48,9 @@ if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
     }
 }else{ //不是命令
     $Message = $Event['message'];
-    $botName = "小绫";
+    $botName = Config("botName");
     //是否有在叫bot名字
-    if(mb_substr($Message,0,2)==$botName){
+    if((mb_substr($Message,0,mb_strlen($botName))==$botName)&&(Config("fastCommand")=="true")){
         //将Message前面的东西去掉
         $Message = mb_substr($Message,mb_strlen($botName));
         $Message = str_replace(" ","",$Message);
