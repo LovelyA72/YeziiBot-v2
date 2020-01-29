@@ -18,6 +18,7 @@
 use kjBot\SDK\CQCode;
 use kjBot\Frame\Message;
 use kjBot\Frame\UnauthorizedException;
+use kjBot\Frame\BlackListedException;
 
 /**
  * 读取配置文件
@@ -384,6 +385,9 @@ function requireGlobalUserGroup($gid){
         $userGroup = 20;
     }else {
         $userGroup = $userResults[0]['gid'];
+    }
+    if($userGroup>=100){
+        throw new BlackListedException();
     }
     if($userGroup>$gid){
         throw new UnauthorizedException();
