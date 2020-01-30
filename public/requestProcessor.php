@@ -16,14 +16,14 @@ switch($Event['request_type']){
             case 'add':
                 //TODO 新人加群的情况可能需要中间件来处理
                 break;
-            case 'invite':
+            /*case 'invite':
                 $CQ->setGroupAddRequest($Event['flag'], $Event['sub_type'], Config('allowGroups')=="true");
                 if(Config('allowGroups')=="true"){
                     $Queue[]= sendMaster('Join Group '.$Event['group_id'].' by '.$Event['user_id']); //通知master
                 }else{
                     $Queue[]= sendMaster('Denied group request '.$Event['group_id'].' by '.$Event['user_id']); //通知master
                 }
-                break;
+                break;*/
             default:
         }
         break;
