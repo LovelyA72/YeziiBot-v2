@@ -52,10 +52,13 @@ CREATE TABLE "credits" (
 	"coin"	INTEGER NOT NULL DEFAULT 0,
 	"xp"	INTEGER NOT NULL DEFAULT 0,
 	"lastcheck"	INTEGER NOT NULL DEFAULT 0,
+	"ex1"	INTEGER DEFAULT 0,
 	"sc1"	INTEGER DEFAULT 0,
 	"sc2"	INTEGER DEFAULT 0,
 	"api_key"	TEXT UNIQUE,
 	"badge"	TEXT,
+	"energy"	INTEGER DEFAULT 200,
+	"energy_last_deduct"	INTEGER DEFAULT 0,
 	PRIMARY KEY("qid")
 );
 CREATE TABLE `tickets` (
