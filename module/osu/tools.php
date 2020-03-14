@@ -114,7 +114,7 @@ function getSSPP($map, $stat){
 
 function get_user_recent($k, $u, $m = OsuMode::std){
     $u=OsuUsernameEscape($u);
-    $result = json_decode(file_get_contents("https://osu.ppy.sh/api/get_user_recent?k={$k}&u={$u}&m={$m}"), true)[0];
+    $result = json_decode(http_get_contents("https://osu.ppy.sh/api/get_user_recent?k={$k}&u={$u}&m={$m}"), true)[0];
     if(NULL === $result){
         throw new \Exception('玩家最近没有成绩');
     }
@@ -123,7 +123,7 @@ function get_user_recent($k, $u, $m = OsuMode::std){
 
 function get_user_best($k, $u, $bp, $m = OsuMode::std){
     $u=OsuUsernameEscape($u);
-    $result = json_decode(file_get_contents("https://osu.ppy.sh/api/get_user_best?k={$k}&u={$u}&limit={$bp}&m={$m}"), true)[$bp-1];
+    $result = json_decode(http_get_contents("https://osu.ppy.sh/api/get_user_best?k={$k}&u={$u}&limit={$bp}&m={$m}"), true)[$bp-1];
     if(NULL === $result){
         throw new \Exception('没有这个bp');
     }
@@ -132,15 +132,16 @@ function get_user_best($k, $u, $bp, $m = OsuMode::std){
 
 function get_user($k, $u, $m = OsuMode::std){
     $u=OsuUsernameEscape($u);
-    $result = json_decode(file_get_contents("https://osu.ppy.sh/api/get_user?k={$k}&u={$u}&m={$m}"), true)[0];
+	$result = http_get_contents("http://osu.ppy.sh/api/get_user?k={$k}&u={$u}&m={$m}");
+	$result = json_decode($result, true)[0];
     if(NULL === $result){
-        throw new \Exception('无效的 osu! ID，请检查用户名是否正确（或者被 ban 了');
+		throw new \Exception('无效的 osu! ID，请检查用户名是否正确（或者被 ban 了');
     }
     return $result;
 }
 
 function get_beatmap($k, $b){
-    return json_decode(file_get_contents("https://osu.ppy.sh/api/get_beatmaps?k={$k}&b={$b}"), true)[0];
+    return json_decode(http_get_contents("https://osu.ppy.sh/api/get_beatmaps?k={$k}&b={$b}"), true)[0];
 }
 
 function get_map($id, $mod){
@@ -168,6 +169,11 @@ function setOsuID($qq, $id){
     }else{
         throw new \Exception('已经绑定了 '.$setID."\n".'需要改绑请联系 '.config('master'));
     }
+}
+function adminSetOsuID($qq, $id){
+    global $osu_api_key;
+    get_user($osu_api_key, $id);
+    return setData('osu/id/'.$qq, $id);
 }
 
 function imageFont($file = 1, $size = 12, $color = '#000000', $align = 'left', $valign = 'buttom', $angle = 0){

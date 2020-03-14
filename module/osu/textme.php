@@ -45,7 +45,7 @@ if($osuid == ''){
 
 $osuid = OsuUsernameEscape($osuid);
 
-$web = file_get_contents('https://osu.ppy.sh/users/'.$osuid.'/'.$mode);
+$web = http_get_contents('https://osu.ppy.sh/users/'.$osuid.'/'.$mode);
 
 $target = '<script id="json-user" type="application/json">';
 
