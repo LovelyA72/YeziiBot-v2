@@ -22,7 +22,30 @@
 //file_put_contents("composer-installer", fopen("https://getcomposer.org/installer", 'r'));
 //exec("php composer-installer");
 //exec("php composer.phar install");
+error_reporting(E_ALL);
+function countDown( $seconds ) {
+	for ( $i = $seconds; $i >= 0; $i-- ) {
+		if ( $i != $seconds ) {
+			print( str_repeat( "\x08", strlen( $i + 1 ) ) );
+		}
+		print( $i );
+		if ( $i ) {
+			sleep( 1 );
+		}
+	}
+	print( "\n" );
+}
 
+print("YeziiBot is licensed under the GNU AGPL v3 license.\n");
+print("YeziiBot由GNU AGPL v3许可证进行许可。这意味着您必须注明本程序的来源并且将所做的任何修改开源。\n");
+print("如果您希望闭源开发，请不要使用YeziiBot并立即ctrl+c退出此安装程序\nPlease wait for the countdown\n请等待倒计时结束：");
+countDown(9);
+print("Type 'agree' to continue\n");
+print("请输入agree同意并继续安装.\n");
+if(readline("Type your response:")!="agree"){
+	print("Installation aborted. 安装终止。");
+	return;
+}
 exec("mkdir storage\\");
 exec("mkdir storage\\data\\");
 exec("mkdir storage\\cache\\");
