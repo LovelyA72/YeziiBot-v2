@@ -34,7 +34,7 @@ if($totalDraw>100){
 	return;
 }
 
-if(!fromGroup()&&$totalDraw>11){
+if(fromGroup()&&$totalDraw>11){
     $Queue[]= sendBack("为防止刷屏，超过11连请私聊抽哦！");
     return;
 }
