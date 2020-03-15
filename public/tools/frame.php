@@ -493,5 +493,5 @@ function setENG($QQ,$value){
     dbRunQueryReturn("UPDATE credits SET energy = {$value} WHERE qid = {$QQ}");
 }
 function getEXP($QQ){
-    return dbRunQueryReturn("SELECT * FROM credits WHERE qid = 2927103357")[0]['xp'];
+    return dbRunQueryReturn("SELECT * FROM credits WHERE qid = $QQ")[0]['xp'];
 }
