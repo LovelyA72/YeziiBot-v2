@@ -481,4 +481,17 @@ function calcLevel($score)
     }
     return $i;
 }
+function getEX1($QQ){
+    return dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$QQ}")[0]['ex1'];
+}
 
+function getENG($QQ){
+    return dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$QQ}")[0]['energy'];
+}
+
+function setENG($QQ,$value){
+    dbRunQueryReturn("UPDATE credits SET energy = {$value} WHERE qid = {$QQ}");
+}
+function getEXP($QQ){
+    return dbRunQueryReturn("SELECT * FROM credits WHERE qid = 2927103357")[0]['xp'];
+}

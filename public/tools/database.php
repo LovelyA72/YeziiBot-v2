@@ -57,8 +57,8 @@ EOF;
     $ret = $db->query($sql);
     while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
         if($row["qid"]==$gqid){
-            $result = $row["credit"];
-            return(array($row["coin"],$row["xp"],$row["lastCheck"]));
+            $result = $row["coin"];
+            return(array($row["coin"],$row["xp"],$row["lastcheck"]));
         }
     }
     return -1;
