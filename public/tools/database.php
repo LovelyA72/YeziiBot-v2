@@ -89,3 +89,18 @@ EOF;
     $ret = $db->exec($sql);
     return true;
 }
+
+function getEX1($qid){
+    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['ex1'];
+}
+
+function getENG($qid){
+    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['energy'];
+}
+
+function setENG($qid,$val){
+    dbRunQueryReturn("UPDATE credits SET energy = {$val} WHERE qid = {$qid}");
+}
+function getEXP($qid){
+    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
+}

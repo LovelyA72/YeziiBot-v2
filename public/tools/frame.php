@@ -464,9 +464,6 @@ function http_get_contents($url)
     return shell_exec("{$cp}curl.exe --fail \"{$url}\"");
 }
 
-function getEXP($qid){
-    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
-}
 function calcLevel($score)
 {
     $toNextLevel = array(0, 30, 80, 150, 300, 490, 1050,
@@ -485,14 +482,3 @@ function calcLevel($score)
     return $i;
 }
 
-function getEX1($qid){
-    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['ex1'];
-}
-
-function getENG($qid){
-    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['energy'];
-}
-
-function setENG($qid,$val){
-    dbRunQueryReturn("UPDATE credits SET energy = {$val} WHERE qid = {$qid}");
-}
