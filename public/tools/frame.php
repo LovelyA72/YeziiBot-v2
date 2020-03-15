@@ -463,3 +463,36 @@ function http_get_contents($url)
 	$cp = config("curlPath");
     return shell_exec("{$cp}curl.exe --fail \"{$url}\"");
 }
+
+function getEXP($qid){
+    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
+}
+function calcLevel($score)
+{
+    $toNextLevel = array(0, 30, 80, 150, 300, 490, 1050,
+        1360, 1710, 2100, 2530, 3000, 3510, 4060,
+        4650, 5280, 5950, 6660, 7410, 8200, 9030,
+        9900, 10810, 11760, 12750, 13780, 14850,
+        15960, 17110, 18300, 22100, 26900, 29310, 35000, 40000, 
+        45000, 50000, 60000, 65000, 70000,75250, 84910, 99850, 100000,
+        108000, 116000, 124000, 132000);
+    $i = 1;
+    $addedScore = 0;
+    while ($addedScore + $toNextLevel[$i] < $score) {
+        $addedScore += $toNextLevel[$i];
+        $i++;
+    }
+    return $i;
+}
+
+function getEX1($qid){
+    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['ex1'];
+}
+
+function getENG($qid){
+    dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['energy'];
+}
+
+function setENG($qid,$val){
+    dbRunQueryReturn("UPDATE credits SET energy = {$val} WHERE qid = {$qid}");
+}

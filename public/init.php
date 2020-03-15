@@ -6,7 +6,7 @@ use kjBot\SDK\CQCode;
 use kjBot\Frame\MessageSender;
 
 //全局变量区
-$Version = Array("num"=>"0.4.1","name"=>"Adaptable Ame");
+$Version = Array("num"=>"0.5.0 beta","name"=>"Kindly Kashouryo");
 
 $Config = parse_ini_file('../config.ini', false, INI_SCANNER_RAW);
 $Event = json_decode(file_get_contents('php://input'), true);

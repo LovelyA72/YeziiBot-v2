@@ -18,23 +18,6 @@
 global $Queue,$Event;
 loadModule('credit.tools');
 
-function levelCalc($score)
-{
-    $toNextLevel = array(0, 30, 80, 150, 300, 490, 1050,
-        1360, 1710, 2100, 2530, 3000, 3510, 4060,
-        4650, 5280, 5950, 6660, 7410, 8200, 9030,
-        9900, 10810, 11760, 12750, 13780, 14850,
-        15960, 17110, 18300, 22100, 26900, 29310, 35000, 40000, 
-        45000, 50000, 60000, 65000, 70000,75250, 84910, 99850, 100000,
-        108000, 116000, 124000, 132000);
-    $i = 1;
-    $addedScore = 0;
-    while ($addedScore + $toNextLevel[$i] < $score) {
-        $addedScore += $toNextLevel[$i];
-        $i++;
-    }
-    return $i;
-}
 
 $levelName = Array("似曾相识","熟悉面孔","游戏好友","看番朋友","死宅姬友","四斋蒸鹅心");
 
@@ -52,7 +35,7 @@ $qid = $Event['user_id'];
 generalCheck($qid);
 
 $credit = getCredit($qid);
-$exp = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['xp'];
+$exp = getEXP($qid);
 $badges = explode(",",dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['badge']);
 $badgeCQCode="";
 
@@ -69,11 +52,14 @@ if(getGlobalUserGroup($qid)<=10){
 if($badgeCQCode==""){
     $badgeCQCode .= "\n没有获得任何头衔哦~继续加油吧！";
 }
-
-$lv = levelCalc($exp);
+$ex1 = getEX1($qid);
+$lv = calcLevel($exp);
+$energy = getENG($qid);
 $message = "玩家ID: {$qid}
 金币: {$credit}G
-经验: {$exp}XP
+好感：{$ex1}
+体力：{$energy}
+经验(deprecated): {$exp}XP
 等级: Lv.{$lv}
 等级头衔: ";
 

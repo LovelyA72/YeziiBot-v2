@@ -21,6 +21,7 @@
 //-----------------------------------------------------------------------
 
 global $Queue,$Event,$Command;
+loadModule('credit.tools');
 
 $year = date('Y');
 
@@ -33,14 +34,15 @@ if($totalDraw>100){
 	$Queue[]= sendBack("Xiaoling CDrawX V0.58a\n(c){$year} TEAM A72\n[Error] totalNumber: Value too big.");
 	return;
 }
+$costMoney = (int)(15+$totalDraw/3);
 
 $prize_arr = array(
     0=>array( 'id'=>1,'prize'=>'UR','v'=>50 ),
-    1=>array( 'id'=>2,'prize'=>'SSR','v'=>250 ),  
+    1=>array( 'id'=>2,'prize'=>'SSR','v'=>150 ),  
     2=>array( 'id'=>3,'prize'=>'SSR','v'=>300 ),
-    3=>array( 'id'=>4,'prize'=>'SR','v'=>1400 ),
-    4=>array( 'id'=>5,'prize'=>'N','v'=>1000 ),
-    5=>array( 'id'=>6,'prize'=>'R','v'=>2000 )
+    3=>array( 'id'=>4,'prize'=>'SR','v'=>2500 ),
+    4=>array( 'id'=>5,'prize'=>'N','v'=>500 ),
+    5=>array( 'id'=>6,'prize'=>'R','v'=>3000 )
 );
 
 
@@ -54,31 +56,42 @@ foreach( $prize_arr as $k => $v ){
 
 function get_rand($item){
 
-    $num = array_sum($item);//计算出分�?00
+    $num = array_sum($item);
 
     foreach( $item as $k => $v ){
      
-      $rand = mt_rand(1, $num);//概率区间(整数) 包括1�?00
+      $rand = mt_rand(1, $num);
       if( $rand <= $v ){
-          //循环遍历,当下�?k = 1的时候，只有$rand = 1 才能中奖 
           $result = $k;
-          //echo $rand.'--'.$v;
           break;
       }else{
-          //当下�?k=6的时候，如果$rand>100 必须$rand < = 100 才能中奖 ，那么前�?次循环之�?rand的概率区�? 200-1-5-10-24-60 �?,100�?必中1块钱
           $num-=$v;
-          //echo '*'.$rand.'*'."&ensp;"."&ensp;"."&ensp;";
       }
     }
 
     return $result;
 }
 
-$message="模拟{$totalDraw}连抽！\n";
+decCredit($Event["user_id"], $costMoney);
 
+
+$message="模拟{$totalDraw}连抽！扣取{$costMoney}金币\n";
+
+$expAward = 5;
+$countSSR = 0;
+$countUR = 0;
 for($i=0;$i<$totalDraw;$i++){
-	$res = get_rand($item);
-	$message .= $prize_arr[$res-1]['prize']." ";
+    $res = get_rand($item);
+    $drawed = $prize_arr[$res-1]['prize'];
+    if($drawed=="SSR"){
+        $countSSR++;
+    }elseif ($drawed == "UR") {
+        $countUR++;
+    }
+	$message .= $drawed." ";
 }
+$expAward+=($countSSR*4)+($countUR*25);
+dbRunQueryReturn("UPDATE credits SET xp = xp+{$expAward} WHERE qid = {$Event["user_id"]}");
+$message.="抽到了{$countSSR}张SSR，{$countUR}张UR！\n奖励{$expAward}EXP";
 
 $Queue[]= sendBack($message);
