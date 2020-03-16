@@ -46,8 +46,13 @@ if($lastCheckinTime>=$today){
 	if(rand(1,100)<$successRate){
         $incomex = $income;
 	    $xpincomex = $xpincome;
-        dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
-        $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+        if(config('enableEXP','false')=='true'){
+            dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
+            $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+        }else{
+            dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex} WHERE qid = {$qid}");
+            $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币！');
+        }
     }else{
         switch (rand(1,4)) {
             case 1:
