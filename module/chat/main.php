@@ -22,6 +22,7 @@
 
 global $Message, $Queue, $Command;
 $question = $Command[1];
+$userStanding = 3;
 $answers = dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\" AND status = 0");
 $anss = Array();
 foreach($answers as $ansstr){

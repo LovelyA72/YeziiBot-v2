@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-./build.sh
+php ./welcome.php
 cd public/
-php -S 0.0.0.0:8080
+php -S 127.0.0.1:8940
