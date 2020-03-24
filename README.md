@@ -1,8 +1,8 @@
-# YeziiBot v2 [![CodeFactor](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2/badge)](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2) [![License: AGPL v3](https://img.shields.io/badge/GNU-AGPL%20v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0) [![推荐使用CoolQ Pro](https://img.shields.io/badge/CoolQ-PRO-Orange.svg)](https://cqp.me)
+# YeziiBot v2 [![CodeFactor](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2/badge)](https://www.codefactor.io/repository/github/lovelya72/yeziibot-v2) [![License: AGPL v3](https://img.shields.io/badge/GNU-AGPL%20v3-blue)](https://www.gnu.org/licenses/agpl-3.0) ![CQHTTP](https://img.shields.io/badge/RC-RCNB-blue) [![推荐使用CoolQ Pro](https://img.shields.io/badge/CoolQ-PRO-Orange.svg)](https://cqp.me)
 
-![YeziiBot_banner](readme_img.jpg)
+![YeziiBot_banner](yeziibot_banner.png)
 
-YeziiBot-v2基于kjBot v2 legacy开发，是一个轻量级多功能的酷Q机器人。
+诶诶？大家已经到了吗？大家好~ 我叫Kashouryo(是日文名呢！)，大家可以叫我何酱哦！我可以帮助米娜查看自己的osu!游玩情况，生成得分图片，也可以陪大家玩哦！
 
 ## 请使用CoolQ Pro
 本项目开发目标为CoolQ Pro。为获得最好的效果，请您使用CoolQ Pro运行本项目。[从这里购买属于你的酷Q Pro许可证！](https://cqp.me)
@@ -42,6 +42,7 @@ git clone https://github.com/kj415j45/kjBot.git
 cd kjBot/
 ./build.sh
 ```
+将config.ini.example改名为config.ini并加入对应的配置信息
 
 仅作为框架使用时请清除 `composer.json` 内的 `require` 以及 `module/`、`middleWare/` 文件夹内的全部内容。
 
@@ -72,8 +73,7 @@ if(!fromGroup()){ //如果消息不是来自群聊
 参考 `module/` 文件夹下的其他模块
 
 ## 代码要求
-1. 当修改或添加文件时，请在文件的头部添加```YeziiBot-v2.licenseheader```里面的许可证文字
-2. 不推荐在文件尾部使用```?>```关闭```<?php```
+* 当修改或添加文件时，请在文件的头部添加```YeziiBot-v2.licenseheader```里面的许可证文字
 
 ## 感谢
 

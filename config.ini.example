@@ -1,0 +1,24 @@
+API=127.0.0.1:5700
+token=
+prefix=!
+master=
+bot=
+allowFriends=false
+allowGroups=false
+autoFriendsRequest=false
+WelcomeMsg=感谢添加YeziiBot为好友~ 发送 !help 查看帮助列表
+;DEBUG=true
+DebugListen=
+;Listen=
+recordStat=false
+botName=YeziiBot
+fastCommand=true
+;这里往下是模块定义的 config，以后可能会改为使用 data
+Github_Integration_ID=
+Github_Installation_ID=
+Pixiv_Session=
+osu_cookie=
+osu_api_key=
+bd_app_id=
+bd_api_key=
+bd_api_token=
