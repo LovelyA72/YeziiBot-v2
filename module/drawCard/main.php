@@ -44,8 +44,8 @@ $prize_arr = array(
     1=>array( 'id'=>2,'prize'=>'SSR','v'=>250 ),  
     2=>array( 'id'=>3,'prize'=>'SSR','v'=>300 ),
     3=>array( 'id'=>4,'prize'=>'SR','v'=>1400 ),
-    4=>array( 'id'=>5,'prize'=>'N','v'=>1000 ),
-    5=>array( 'id'=>6,'prize'=>'R','v'=>2000 )
+    //4=>array( 'id'=>5,'prize'=>'N','v'=>1000 ),
+    4=>array( 'id'=>6,'prize'=>'R','v'=>2000 )
 );
 
 
