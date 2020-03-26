@@ -42,10 +42,10 @@ if(fromGroup()&&$totalDraw>11){
 $prize_arr = array(
     0=>array( 'id'=>1,'prize'=>'UR','v'=>50 ),
     1=>array( 'id'=>2,'prize'=>'SSR','v'=>250 ),  
-    2=>array( 'id'=>3,'prize'=>'SSR','v'=>300 ),
-    3=>array( 'id'=>4,'prize'=>'SR','v'=>1400 ),
+    2=>array( 'id'=>3,'prize'=>'SSR','v'=>600 ),
+    3=>array( 'id'=>4,'prize'=>'SR','v'=>1700 ),
     //4=>array( 'id'=>5,'prize'=>'N','v'=>1000 ),
-    4=>array( 'id'=>6,'prize'=>'R','v'=>2000 )
+    4=>array( 'id'=>5,'prize'=>'R','v'=>2000 )
 );
 
 
