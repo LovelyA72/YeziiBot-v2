@@ -27,5 +27,10 @@ requireGlobalUserGroup(0);
 $multi = nextArg();
 $date = nextArg();
 
+if(sizeof(dbRunQueryReturn("SELECT * FROM checkin_motd WHERE date BETWEEN {$date} AND {$td}"))!=0){
+    throw new \Exception("该日期已经有motd了");
+}
+
+
 dbRunQuery("INSERT INTO checkin_motd VALUES({$date},{$multi},\"{$Text}\")");
 $Queue[] = sendBack("添加成功");
