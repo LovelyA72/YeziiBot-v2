@@ -20,7 +20,6 @@
 
 //-----------------------------------------------------------------------
 
-
 global $Event, $Queue;
 loadModule('credit.tools');
 
@@ -30,11 +29,23 @@ $xpincome = rand(150, 500);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
 $today = date('ymd');
+$haveMotd = false;
+$multi = 1;
 //修改这个数值来更改成功几率(0-100)，数值越大，成功率越高
-$successRate = 92;
+$motd = dbRunQueryReturn("SELECT * FROM checkin_motd WHERE date = {$today}");
+if (sizeof($motd)==0) {
+    $successRate = 92;
+}else{
+    $successRate = 100;
+    $multi = $motd[0]["multi"];
+    if($motd[0]["message"]==""){
+        $haveMotd = true;
+    }
+}
 
 if($lastCheckinTime>=$today){
-    $Queue[]= sendBack(randomString(array(
+    $Queue[]= sendBack(randomString(
+        array(
         "你今天签到过了！",
         "是小绫记错了吗？不不不，你今天真的签到过了！",
         "小绫我的记性都比你要好啾~你今天签到过啦！",
@@ -44,14 +55,22 @@ if($lastCheckinTime>=$today){
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
 	if(rand(1,100)<$successRate){
-        $incomex = $income;
+        $incomex = $income*$multi;
 	    $xpincomex = $xpincome;
         if(config('enableEXP','false')=='true'){
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
-            $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+            if ($haveMotd) {
+                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值！\n哦，对了！".$motd[0]["message"]);
+            }else{
+                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+            }
         }else{
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex} WHERE qid = {$qid}");
-            $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币！');
+            if ($haveMotd) {
+                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币！\n哦，对了！".$motd[0]["message"]);
+            }else{
+                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币！');
+            }
         }
     }else{
         switch (rand(1,4)) {
