@@ -19,29 +19,7 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
+global $Queue;
+$Queue[]= sendBack("pong");
 
-global $Queue,$Command;
-
-if($Command[1]>30){
-    throw new Exception("不能超过30站哦！");
-}
-if($Command[1]<3){
-    throw new Exception("至少要有三个站哦！");//对下面添加箭头bug的粗暴解决方案，但是不能依赖
-}
-$stations = explode("\r\n",file_get_contents("../module/railFans/stations.txt"));
-for($i=0;$i<$Command[1];$i++){
-    $index = rand(0,sizeof($stations)-1);
-    $final[] = $stations[$index];
-    array_splice($stations, $index, 1);
-}
-$result = "";
-for($j=0;$j<sizeof($final);$j++){
-    if($j!=0&&$j!=1&&$j!=sizeof($final)-1){
-        $result = $result.$final[$j].'<->';
-    }else if($j==1){
-        $result = $result.'<->'.$final[$j].'<->';
-    }else{
-        $result = $result.$final[$j];
-    }
-}
-$Queue[]=sendBack("已生成包含{$Command[1]}个站点的虚拟线路: \n".$result);
+?>
