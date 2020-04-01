@@ -27,7 +27,7 @@ requireGlobalUserGroup(0);
 $multi = nextArg();
 $date = nextArg();
 
-if(sizeof(dbRunQueryReturn("SELECT * FROM checkin_motd WHERE date BETWEEN {$date} AND {$td}"))!=0){
+if(sizeof(dbRunQueryReturn("SELECT * FROM checkin_motd WHERE date = {$date}"))!=0){
     throw new \Exception("该日期已经有motd了");
 }
 
