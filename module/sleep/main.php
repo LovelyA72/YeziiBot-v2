@@ -15,9 +15,13 @@ while(true){
         break;
     }
 }
-
+$myTime = strtotime($time)-time();
+if(strtotime($time)==time()||strtotime($time)>strtotime('+29 day')){
+    $myTime = strtotime('+8 hour')-time();
+    $Queue[] = sendBack("owo");
+}
 try{
-    $CQ->setGroupBan($Event['group_id'], $Event['user_id'], (strtotime($time)-time()));
+    $CQ->setGroupBan($Event['group_id'], $Event['user_id'],$myTime) ;
 }catch(\Exception $e){}
 
 ?>
