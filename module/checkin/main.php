@@ -38,7 +38,7 @@ if (sizeof($motd)==0) {
 }else{
     $successRate = 100;
     $multi = $motd[0]["multi"];
-    if($motd[0]["message"]==""){
+    if($motd[0]["message"]!=""){
         $haveMotd = true;
     }
 }
@@ -54,20 +54,20 @@ if($lastCheckinTime>=$today){
         "呜～签到失败了....人家该如何是好啊...（慌慌张张）明天再来吧！",
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
-	if(rand(1,100)<$successRate){
+	if(rand(1,100)<=$successRate){
         $incomex = $income*$multi;
 	    $xpincomex = $xpincome;
         if(config('enableEXP','false')=='true'){
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
             if ($haveMotd) {
-                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值！\n哦，对了！".$motd[0]["message"]);
+                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值！\n".$motd[0]["message"]);
             }else{
                 $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
             }
         }else{
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex} WHERE qid = {$qid}");
             if ($haveMotd) {
-                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币！\n哦，对了！".$motd[0]["message"]);
+                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币！\n".$motd[0]["message"]);
             }else{
                 $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币！');
             }
