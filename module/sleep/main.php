@@ -16,7 +16,7 @@ while(true){
     }
 }
 $myTime = strtotime($time)-time();
-if(strtotime($time)<=time()||strtotime($time)>strtotime('+29 day')){
+if(strtotime($time)<strtotime('+1 minutes')||strtotime($time)>strtotime('+29 day')){
     $myTime = strtotime('+8 hour')-time();
     $Queue[] = sendBack("owo");
 }
