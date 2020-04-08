@@ -55,44 +55,51 @@ if($badgeCQCode==""){
 $ex1 = getEX1($qid);
 $lv = calcLevel($exp);
 $energy = getENG($qid);
-$message = "玩家ID: {$qid}
-金币: {$credit}G
-好感：{$ex1}
-体力：{$energy}
-经验(deprecated): {$exp}XP
-等级: Lv.{$lv}
-等级头衔: ";
+if (config("enablexp","true")=="true") {
+    $message = "玩家ID: {$qid}
+    金币: {$credit}G
+    好感：{$ex1}
+    体力：{$energy}
+    经验(deprecated): {$exp}XP
+    等级: Lv.{$lv}
+    等级头衔: ";
 
-$level = 0;
-$nextlv = 6;
-if($lv>5){
-	$level++;
-	$nextlv = 9;
-}
-if($lv>8){
-	$level++;
-	$nextlv = 13;
-}
-if($lv>12){
-	$level++;
-	$nextlv = 20;
-}
-if($lv>19){
-	$level++;
-	$nextlv = 29;
-}
-if($lv>28){
-	$level++;
-	$nextlv = -1;
-}
-$message .=$levelName[$level]."\n";
+    $level = 0;
+    $nextlv = 6;
+    if($lv>5){
+        $level++;
+        $nextlv = 9;
+    }
+    if($lv>8){
+        $level++;
+        $nextlv = 13;
+    }
+    if($lv>12){
+        $level++;
+        $nextlv = 20;
+    }
+    if($lv>19){
+        $level++;
+        $nextlv = 29;
+    }
+    if($lv>28){
+        $level++;
+        $nextlv = -1;
+    }
+    $message .=$levelName[$level]."\n";
 
-$message .=$levelDescription[$level];
+    $message .=$levelDescription[$level];
 
-if ($nextlv!=-1) {
-    $message .="\n下一个称号会在Lv.{$nextlv}解锁";
+    if ($nextlv!=-1) {
+        $message .="\n下一个称号会在Lv.{$nextlv}解锁";
+    }else{
+        $message .="\n祝贺一下！你是最高等级了！";
+    }
 }else{
-    $message .="\n祝贺一下！你是最高等级了！";
+    $message = "玩家ID: {$qid}
+    金币: {$credit}G
+    好感：{$ex1}
+    体力：{$energy}";
 }
 
 $message .= "\n头衔：".$badgeCQCode;
