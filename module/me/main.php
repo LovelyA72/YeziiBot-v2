@@ -96,7 +96,7 @@ if (config("enableEXP","false")=="true") {
         $message .="\n祝贺一下！你是最高等级了！";
     }
 }else{
-    $message = "玩家ID: {$qid}\n金币: {$credit}G\n好感：{$ex1}]\n体力：{$energy}";
+    $message = "玩家ID: {$qid}\n金币: {$credit}G\n好感：{$ex1}\n体力：{$energy}";
 }
 
 $message .= "\n头衔：".$badgeCQCode;
