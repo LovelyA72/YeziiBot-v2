@@ -55,7 +55,7 @@ if($badgeCQCode==""){
 $ex1 = getEX1($qid);
 $lv = calcLevel($exp);
 $energy = getENG($qid);
-if (config("enableEXP","true")=="true") {
+if (config("enableEXP","false")=="true") {
     $message = "玩家ID: {$qid}
     金币: {$credit}G
     好感：{$ex1}
