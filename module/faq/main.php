@@ -20,9 +20,9 @@
 
 //-----------------------------------------------------------------------
 
-global $Queue, $Event, $Text;
+global $Queue, $Command, $Text;
 requireMaster();
 
-$respond = file_get_contents("../module/faq/faq/{$Command[1]}.txt");
+$respond = file_get_contents("../storage/data/faq/{$Command[1]}.txt");
 
 $Queue[]= sendBack($respond);
