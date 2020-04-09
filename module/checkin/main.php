@@ -60,16 +60,16 @@ if($lastCheckinTime>=$today){
         if(config('enableEXP','false')=='true'){
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
             if ($haveMotd) {
-                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值！\n".$motd[0]["message"]);
+                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值，体力回复40EP\n".$motd[0]["message"]);
             }else{
-                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值！');
+                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值，体力回复40EP');
             }
         }else{
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex} WHERE qid = {$qid}");
             if ($haveMotd) {
-                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币！\n".$motd[0]["message"]);
+                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币，体力回复40EP\n".$motd[0]["message"]);
             }else{
-                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币！');
+                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，体力回复40EP');
             }
         }
     }else{

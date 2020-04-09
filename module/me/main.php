@@ -56,13 +56,7 @@ $ex1 = getEX1($qid);
 $lv = calcLevel($exp);
 $energy = getENG($qid);
 if (config("enableEXP","false")=="true") {
-    $message = "玩家ID: {$qid}
-    金币: {$credit}G
-    好感：{$ex1}
-    体力：{$energy}
-    经验(deprecated): {$exp}XP
-    等级: Lv.{$lv}
-    等级头衔: ";
+    $message = "玩家ID: {$qid}\n金币：{$credit}G\n好感：{$ex1}\n体力：{$energy}EP/200EP\n经验(deprecated): {$exp}XP\n等级: Lv.{$lv}\n等级头衔: ";
 
     $level = 0;
     $nextlv = 6;
@@ -96,7 +90,7 @@ if (config("enableEXP","false")=="true") {
         $message .="\n祝贺一下！你是最高等级了！";
     }
 }else{
-    $message = "玩家ID: {$qid}\n金币: {$credit}G\n好感：{$ex1}\n体力：{$energy}";
+    $message = "玩家ID：{$qid}\n金币：{$credit}G\n好感：{$ex1}\n体力：{$energy}EP/200EP";
 }
 
 $message .= "\n头衔：".$badgeCQCode;

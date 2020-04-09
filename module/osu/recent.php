@@ -94,7 +94,7 @@ $sampleData = array(
 		'rank' => $recent['rank'],
 		'level' => $beatmap['version'],
 		'author' => $beatmap['creator'],
-		'diff' => 'CS:'.$beatmap['diff_size'].' OD:'.$beatmap['diff_overall'].' HP:'.$beatmap['diff_drain'].' AR:'.$beatmap['diff_approach'].' Stars:'. $beatmap['difficultyrating'],
+		'diff' => 'CS:'.$beatmap['diff_size'].' OD:'.$beatmap['diff_overall'].' HP:'.$beatmap['diff_drain'].' AR:'.$beatmap['diff_approach'].' Stars:'. round($beatmap['difficultyrating'], 1),
     ));
 write_ini_file($sampleData,dirname(__FILE__)."/../../storage/data/oig/{$Event['message_id']}.ini", true);
 //$ret = shell_exec("dotnet ".dirname(__FILE__)."/../../storage/oig/osuImageGenerator.dll ./{$Event['message_id']}.ini ../../cache/{$Event['message_id']}.jpg");
