@@ -5,13 +5,14 @@ use kjBot\SDK\CoolQ;
 use kjBot\SDK\CQCode;
 use kjBot\Frame\MessageSender;
 
+//全局变量区
+$Version = Array("num"=>"0.5.0 beta","name"=>"Kindly Kashouryo");
+$Config = parse_ini_file('../config.ini', false, INI_SCANNER_RAW);
+
+//Master switch
 if (config('master_switch', 'false')=="true") {
     exit();
 }
-//全局变量区
-$Version = Array("num"=>"0.5.0 beta","name"=>"Kindly Kashouryo");
-
-$Config = parse_ini_file('../config.ini', false, INI_SCANNER_RAW);
 $Event = json_decode(file_get_contents('php://input'), true);
 $Event['message'] = CQCode::DecodeCQCode($Event['message']);
 $User_id = $Event['user_id'];
