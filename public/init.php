@@ -5,6 +5,9 @@ use kjBot\SDK\CoolQ;
 use kjBot\SDK\CQCode;
 use kjBot\Frame\MessageSender;
 
+if (config('master_switch', 'false')=="true") {
+    exit();
+}
 //全局变量区
 $Version = Array("num"=>"0.5.0 beta","name"=>"Kindly Kashouryo");
 
