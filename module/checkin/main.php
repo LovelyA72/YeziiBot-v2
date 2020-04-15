@@ -34,7 +34,7 @@ $multi = 1;
 //修改这个数值来更改成功几率(0-100)，数值越大，成功率越高
 $motd = dbRunQueryReturn("SELECT * FROM checkin_motd WHERE date = {$today}");
 if (sizeof($motd)==0) {
-    $successRate = 92;
+    $successRate = 94;
 }else{
     $successRate = 100;
     $multi = $motd[0]["multi"];
