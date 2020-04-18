@@ -36,9 +36,9 @@ switch($countArg){
 if($Text!=null){
 	$uid=$Event['user_id'];
 	$rep = "因为{$Text},[CQ:at,qq={$uid}]掷出了";
-	$message = $rep.rand($min, $max)."!";
+	$message = $rep.mt_rand($min, $max)."!";
 }else{
-	$message = rand($min, $max);
+	$message = mt_rand($min, $max);
 }
 $Queue[]= sendBack($message);
 
