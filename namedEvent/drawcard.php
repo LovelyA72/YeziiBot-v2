@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------
 global $Message,$Command;
 
-if(preg_match("/^抽卡\d+/",$Message)){
+if(preg_match("/^抽卡/",$Message)){
     $Command[1]=(int)mb_substr($Message,2);
     loadModule('drawCard');
 }
