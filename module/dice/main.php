@@ -23,12 +23,14 @@
 global $Queue, $Command;
 
 $dsplit = explode("d",nextArg(),2);
-$dice = preg_replace("/[^0-9]/", "", $dsplit[0] );
-$sides = preg_replace("/[^0-9]/", "", $dsplit[1] );
+$dice = (int)preg_replace("/[^0-9]/", "", $dsplit[0] );
+$sides = (int)preg_replace("/[^0-9]/", "", $dsplit[1] );
 $message = "";
 if ($dice>10||$sides>100) {
     $Queue[] = sendBack("骰子面超过了100面或骰子数量超过了10个");
-}else {
+}elseif ($dice==0||$sides==0) {
+    loadModule("help.dice");
+}else{
     for ($i=0; $i < $dice; $i++) { 
         $message.=mt_rand(1,$sides)." ";
     }

@@ -7,7 +7,7 @@ $msg="何小綾的使用说明
 ".config('prefix')."help.{命令}[.下一级命令]
 获得特定命令的帮助
 可用命令：
-checkin credit osu roll search sleep time trans unsleep version voice";
+checkin credit dice osu roll search sleep time trans unsleep version voice";
 
 $Queue[]= sendBack($msg);
 
