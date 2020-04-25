@@ -22,6 +22,7 @@
 
 global $Event, $Queue;
 loadModule('credit.tools');
+loadModule('energy.tools');
 
 $qid = $Event['user_id'];
 $income = rand(15, 45);

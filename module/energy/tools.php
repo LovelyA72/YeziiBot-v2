@@ -32,7 +32,8 @@ function addEnergy($QQ,int $income){
     if((int)getEnergy($QQ)+$income>(int)config("MaxEnergy","200")){
         setEnergy($QQ,200);
     }else{
-        dbRunQueryReturn("UPDATE credits SET energy = energy+{$income} WHERE qid = {$QQ}");
+        $grandTotal = getEnergy($QQ)+$income;
+        setEnergy($QQ,$grandTotal);
     }
 }
 
