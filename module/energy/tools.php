@@ -24,19 +24,23 @@ function getEnergy($QQ){
 	return dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$QQ}")[0]['energy'];
 }
 
-function setEnergy($QQ, $energy){
-	return  dbRunQueryReturn("UPDATE credits SET energy = {$energy} WHERE qid = {$QQ}");
+function setEnergy($QQ,int $energy){
+	dbRunQueryReturn("UPDATE credits SET energy = {$energy} WHERE qid = {$QQ}");
 }
 
-function addEnergy($QQ, $income){
-	return  dbRunQueryReturn("UPDATE credits SET energy = energy+{$income} WHERE qid = {$QQ}");
-}
-
-function decEnergy($QQ, $energy){
-    $myEnergy = getEnergy($QQ);
-    if($myEnergy >= $energy){
-        return setEnergy($QQ, (int)($myEnergy-$energy));
+function addEnergy($QQ,int $income){
+    if((int)getEnergy($QQ)+$income>(int)config("MaxEnergy","200")){
+        setEnergy($QQ,200);
     }else{
-        throw new \Exception('你的体力不够呢...');
+        dbRunQueryReturn("UPDATE credits SET energy = energy+{$income} WHERE qid = {$QQ}");
+    }
+}
+
+function decEnergy($QQ,int $energy){
+    $myEnergy = getEnergy($QQ);
+    if((int)$myEnergy >= $energy){
+        setEnergy($QQ, (int)($myEnergy-$energy));
+    }else{
+        throw new \Exception('你的体力不够呢...休息一下吧！');
     }
 }

@@ -55,8 +55,9 @@ if($badgeCQCode==""){
 $ex1 = getEX1($qid);
 $lv = calcLevel($exp);
 $energy = getENG($qid);
+$maxEnergy = config("MaxEnergy","200");
 if (config("enableEXP","false")=="true") {
-    $message = "玩家ID: {$qid}\n金币：{$credit}G\n好感：{$ex1}\n体力：{$energy}EP/200EP\n经验(deprecated): {$exp}XP\n等级: Lv.{$lv}\n等级头衔: ";
+    $message = "玩家ID: {$qid}\n金币：{$credit}G\n好感：{$ex1}\n体力：{$energy}EP/{$maxEnergy}\n经验(deprecated): {$exp}XP\n等级: Lv.{$lv}\n等级头衔: ";
 
     $level = 0;
     $nextlv = 6;

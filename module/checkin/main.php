@@ -55,6 +55,7 @@ if($lastCheckinTime>=$today){
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
 	if(rand(1,100)<=$successRate){
+        addEnergy($qid,40);
         $incomex = $income*$multi;
 	    $xpincomex = $xpincome;
         if(config('enableEXP','false')=='true'){
