@@ -460,6 +460,7 @@ function write_ini_file($assoc_arr, $path, $has_sections=FALSE) {
 } */
 function http_get_contents($url)
 {
+    $url = preg_replace("(&{2}|\|{2})", "",$url);
 	$cp = config("curlPath");
     return shell_exec("{$cp}curl.exe --fail \"{$url}\"");
 }

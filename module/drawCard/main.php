@@ -21,9 +21,9 @@
 //-----------------------------------------------------------------------
 
 global $Queue,$Event,$Command;
+loadModule('energy.tools');
 
 $year = date('Y');
-
 $totalDraw=(int)$Command[1];
 if($totalDraw<=0){
 	$Queue[]= sendBack("Xiaoling CDrawX V0.59a\n(c){$year} TEAM A72\n[Error] Command missing param: totalNumber");
@@ -38,6 +38,9 @@ if(fromGroup()&&$totalDraw>11){
     $Queue[]= sendBack("为防止刷屏，超过11连请私聊抽哦！");
     return;
 }
+
+//precheck all pass, dec energy
+decEnergy($Event['user_id'],10);
 
 $prize_arr = array(
     0=>array( 'id'=>1,'prize'=>'UR','v'=>50 ),
