@@ -1,7 +1,7 @@
 <?php
 
 global $Queue;
-requireMaster();
+requireGlobalUserGroup(0);
 
 if(fromGroup()){
     $Queue[]= sendBack(getUserCommandCount(0, 10));

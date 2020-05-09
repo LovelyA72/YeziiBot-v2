@@ -20,7 +20,7 @@
 
 //-----------------------------------------------------------------------
 
-requireGlobalUserGroup(0);
+requireMaster();
 
 global $Queue;
 use kjBot\SDK\CQCode;

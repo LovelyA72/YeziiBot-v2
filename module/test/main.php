@@ -1,6 +1,6 @@
 <?php
 
 global $Queue, $Command;
-requireMaster();
+requireGlobalUserGroup(0);
 
 $Queue[]= sendBack(sendRec(getData("whistle.mp3")));

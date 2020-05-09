@@ -22,6 +22,6 @@
 
 global $Queue,$Text;
 
-requireMaster();
+requireGlobalUserGroup(0);
 
 $Queue[] = sendBack(pseudolocalise($Text));

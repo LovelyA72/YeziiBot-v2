@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------
 
 global $Queue, $Command, $Text;
-requireMaster();
+requireGlobalUserGroup(0);
 
 $respond = file_get_contents("../storage/data/faq/{$Command[1]}.txt");
 

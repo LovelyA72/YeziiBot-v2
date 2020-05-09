@@ -20,10 +20,10 @@
 
 //-----------------------------------------------------------------------
 
-requireGlobalUserGroup(0);
-
 global $Queue;
 use kjBot\SDK\CQCode;
+
+requireMaster();
 
 $qid = parseQQ(nextArg());
 

@@ -1,5 +1,5 @@
 <?php
-requireMaster();
+requireGlobalUserGroup(0);
 global $Text, $Queue;
 use kjBot\SDK\CQCode;
 $web = file_get_contents($Text);

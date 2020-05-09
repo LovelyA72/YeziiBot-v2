@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------
 
 global $Queue, $Command;
-requireMaster();
+requireGlobalUserGroup(0);
 
 $tid = (int)$Command[1];
 

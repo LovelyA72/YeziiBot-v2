@@ -2,7 +2,7 @@
 
 global $Queue;
 use Linfo\Linfo;
-requireMaster();
+requireGlobalUserGroup(0);
 
 $linfo = new Linfo();
 $parser = $linfo->getParser();

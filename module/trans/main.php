@@ -1,7 +1,7 @@
 <?php
 
 global $Queue, $Text;
-requireMaster();
+requireGlobalUserGroup(0);
 
 use \Statickidz\GoogleTranslate;
 

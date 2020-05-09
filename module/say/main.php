@@ -2,7 +2,7 @@
 
 global $Queue, $Text;
 use kjBot\Frame\Message;
-requireMaster();
+requireGlobalUserGroup(0);
 
 if($Text == '')leave();
 

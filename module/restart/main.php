@@ -1,7 +1,7 @@
 <?php
 
 global $CQ;
-requireMaster();
+requireGlobalUserGroup(0);
 
 $cleanCache = false;
 do{

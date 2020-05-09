@@ -20,9 +20,9 @@
 
 //-----------------------------------------------------------------------
 
-requireGlobalUserGroup(0);
-
 global $Queue;
+
+requireMaster();
 
 $qid = parseQQ(nextArg());
 $gid = (int)nextArg();

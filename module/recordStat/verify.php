@@ -1,7 +1,7 @@
 <?php
 
 global $User_id;
-requireMaster();
+requireGlobalUserGroup(0);
 loadModule('credit.tools');
 
 switch(trim(getData('recordStat/'.$User_id))){

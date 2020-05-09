@@ -2,7 +2,7 @@
 
 global $Queue, $Text, $CQ;
 use kjBot\Frame\Message;
-requireMaster();
+requireGlobalUserGroup(0);
 
 $groupList = $CQ->getGroupList();
 
