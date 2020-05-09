@@ -18,7 +18,7 @@
 global $Queue, $Text;
 
 requireGlobalUserGroup(10);
-$pText = preg_replace("/[^0-9a-zA-Z\+\-\*\/]/", "", $Text );
+$pText = preg_replace("/[^0-9a-zA-Z\+\-\*\/\(\)]/", "", $Text );
 $ret = shell_exec(dirname(__FILE__)."/../../native/calc.exe {$pText}");
 
 $Queue[]= sendBack(mb_substr($ret,0,-1));

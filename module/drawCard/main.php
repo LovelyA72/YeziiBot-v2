@@ -40,7 +40,7 @@ if(fromGroup()&&$totalDraw>11){
 }
 if(fromGroup()){
     //precheck all pass, dec energy
-    decEnergy($Event['user_id'],10);
+    decEnergy($Event['user_id'],15);
 }
 
 

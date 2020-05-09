@@ -20,9 +20,10 @@
 
 //-----------------------------------------------------------------------
 
-global $Message, $Queue, $Command;
+global $Message, $Queue, $Command,$Event;
 $question = $Command[1];
 $userStanding = 3;
+decEnergy($Event['user_id'],5);
 $answers = dbRunQueryReturn("SELECT * FROM replies WHERE question = \"{$question}\" AND status = 0");
 $anss = Array();
 foreach($answers as $ansstr){
