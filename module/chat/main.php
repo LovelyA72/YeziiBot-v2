@@ -21,6 +21,7 @@
 //-----------------------------------------------------------------------
 
 global $Message, $Queue, $Command,$Event;
+loadModule('energy.tools');
 $question = $Command[1];
 $userStanding = 3;
 decEnergy($Event['user_id'],5);
