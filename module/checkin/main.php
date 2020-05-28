@@ -27,6 +27,7 @@ loadModule('energy.tools');
 $qid = $Event['user_id'];
 $income = rand(15, 45);
 $xpincome = rand(150, 500);
+$addEng = 10;
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
 $today = date('ymd');
@@ -56,22 +57,22 @@ if($lastCheckinTime>=$today){
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
 	if(rand(1,100)<=$successRate){
-        addEnergy($qid,80);
+        addEnergy($qid,$addEng);
         $incomex = $income*$multi;
 	    $xpincomex = $xpincome;
         if(config('enableEXP','false')=='true'){
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex},xp = xp+{$xpincomex} WHERE qid = {$qid}");
             if ($haveMotd) {
-                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值，体力回复80EP\n".$motd[0]["message"]);
+                $Queue[]= sendBack('签到成功，获得 '.$incomex.' 个金币，奖励'.$xpincome."经验值，体力回复{$addEng}EP\n".$motd[0]["message"]);
             }else{
-                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome.'经验值，体力回复80EP');
+                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，奖励'.$xpincome."经验值，体力回复{$addEng}EP");
             }
         }else{
             dbRunQueryReturn("UPDATE credits SET lastcheck = {$today},coin = coin+{$incomex} WHERE qid = {$qid}");
             if ($haveMotd) {
-                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币，体力回复80EP\n".$motd[0]["message"]);
+                $Queue[]= sendBack("签到成功，获得 ".$incomex." 个金币，体力回复{$addEng}EP\n".$motd[0]["message"]);
             }else{
-                $Queue[]= sendBack('签到成功，获得 '.$income.' 个金币，体力回复80EP');
+                $Queue[]= sendBack('签到成功，获得 '.$income." 个金币，体力回复{$addEng}EP");
             }
         }
     }else{
