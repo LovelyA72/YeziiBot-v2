@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------
 
 global $Queue,$Version;
-$hash = get_current_git_commit();
+$hash = get_current_git_commit("0.5.0-update");
 if ($hash) {
     $vernume = "{$Version["num"]}-{$hash}";
 }else {
