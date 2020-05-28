@@ -23,7 +23,7 @@
 global $Queue,$Version;
 $hash = get_current_git_commit();
 if ($hash) {
-    $vernume = $Version["num"]+"-{$hash}";
+    $vernume = "{$Version["num"]}-{$hash}";
 }else {
     $vernume = $Version["num"];
 }
