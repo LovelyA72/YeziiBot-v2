@@ -496,3 +496,20 @@ function setENG($QQ,$value){
 function getEXP($QQ){
     return dbRunQueryReturn("SELECT * FROM credits WHERE qid = $QQ")[0]['xp'];
 }
+
+/**
+ * Check current commit hash(if exists)
+ * @param string branch name
+ * @param bool trim the commit number
+ * @return string commit hash
+ */
+function get_current_git_commit(string $branch='master', bool $trim = true) {
+    if ( $hash = file_get_contents( sprintf( '../.git/refs/heads/%s', $branch ) ) ) {
+      if ($trim) {
+          return substr($hash,0,7);
+      }
+      return $hash;
+    } else {
+      return false;
+    }
+}
