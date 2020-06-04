@@ -42,6 +42,6 @@ function decAct($QQ,int $activity){
     if((int)$myAct >= $activity){
         setAct($QQ, (int)($myAct-$activity));
     }else{
-        throw new \Exception('再继续和我玩之前，请多和群里大家交流一下呢！');
+        throw new \Exception('在继续和我玩之前，请多和群里大家交流一下呢！');
     }
 }

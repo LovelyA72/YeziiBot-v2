@@ -57,7 +57,7 @@ if($lastCheckinTime>=$today){
         "呜～签到失败了....人家该如何是好啊...（慌慌张张）明天再来吧！",
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
-    decAct($qid,50);
+    decAct($qid,40);
 	if(rand(1,100)<=$successRate){
         addEnergy($qid,$addEng);
         $incomex = $income*$multi;
@@ -78,7 +78,7 @@ if($lastCheckinTime>=$today){
             }
         }
     }else{
-        addAct($qid,50);
+        addAct($qid,40);
         switch (rand(1,4)) {
             case 1:
                 $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');

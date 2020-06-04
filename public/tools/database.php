@@ -83,9 +83,7 @@ function createUser($qid){
     if(haveUser($qid)){
         die();
     }
-    $sql =<<<EOF
-    INSERT INTO credits (qid,coin,xp,lastCheck,sc1,sc2) VALUES ($qid,0,0,0,0,0);
-EOF;
+    $sql ="INSERT INTO credits (qid,coin,xp,lastCheck,sc1,sc2) VALUES ({$qid},0,0,0,0,0)";
     $ret = $db->exec($sql);
     return true;
 }
