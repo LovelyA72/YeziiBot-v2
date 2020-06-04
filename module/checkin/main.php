@@ -23,6 +23,7 @@
 global $Event, $Queue;
 loadModule('credit.tools');
 loadModule('energy.tools');
+loadModule('activity.tools');
 
 $qid = $Event['user_id'];
 $income = rand(15, 45);
@@ -56,6 +57,7 @@ if($lastCheckinTime>=$today){
         "呜～签到失败了....人家该如何是好啊...（慌慌张张）明天再来吧！",
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
+    decAct($qid,50);
 	if(rand(1,100)<=$successRate){
         addEnergy($qid,$addEng);
         $incomex = $income*$multi;
