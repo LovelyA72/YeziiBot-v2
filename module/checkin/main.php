@@ -78,6 +78,7 @@ if($lastCheckinTime>=$today){
             }
         }
     }else{
+        addAct($qid,50);
         switch (rand(1,4)) {
             case 1:
                 $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');
