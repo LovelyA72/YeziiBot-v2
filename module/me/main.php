@@ -16,7 +16,7 @@
 //-----------------------------------------------------------------------
 
 global $Queue,$Event;
-loadModule('credit.toactivityols');
+loadModule('credit.tools');
 loadModule('activity.tools');
 
 
