@@ -82,8 +82,9 @@ CREATE TABLE "credits" (
 	"badge"	TEXT,
 	"energy"	INTEGER DEFAULT 200,
 	"energy_last_deduct"	INTEGER DEFAULT 0,
+	"activity"	INTEGER DEFAULT 80,
 	PRIMARY KEY("qid")
-);
+)
 CREATE TABLE `tickets` (
 	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	`sender`	INTEGER NOT NULL,
