@@ -16,7 +16,8 @@
 //-----------------------------------------------------------------------
 
 global $Queue,$Event;
-loadModule('credit.tools');
+loadModule('credit.toactivityols');
+loadModule('activity.tools');
 
 
 $levelName = Array("似曾相识","熟悉面孔","游戏好友","看番朋友","死宅姬友","四斋蒸鹅心");
@@ -35,6 +36,7 @@ $qid = $Event['user_id'];
 generalCheck($qid);
 
 $credit = getCredit($qid);
+$activity = getAct($qid);
 $exp = getEXP($qid);
 $badges = explode(",",dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}")[0]['badge']);
 $badgeCQCode="";
@@ -91,7 +93,7 @@ if (config("enableEXP","false")=="true") {
         $message .="\n祝贺一下！你是最高等级了！";
     }
 }else{
-    $message = "玩家ID：{$qid}\n金币：{$credit}G\n好感：{$ex1}\n体力：{$energy}EP/200EP";
+    $message = "玩家ID：{$qid}\n金币：{$credit}G\n好感：{$ex1}\n活跃：{$activity}\n体力：{$energy}EP/200EP";
 }
 
 $message .= "\n头衔：".$badgeCQCode;
