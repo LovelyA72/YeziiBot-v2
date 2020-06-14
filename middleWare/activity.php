@@ -20,7 +20,7 @@
 
 //-----------------------------------------------------------------------
 global $Message;
-if(!preg_match('/\[CQ:bface,p=.*\]/', $Message)){
+if(!preg_match('/CQ:bface/', $Message)){
     loadModule("activity.tools");
     addAct($Event["user_id"],5); 
 }
