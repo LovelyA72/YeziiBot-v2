@@ -58,8 +58,6 @@ if(preg_match('/^(['.config('prefix', '!').'])/', $Event['message'], $prefix)){
         require("../namedEvent/Chain.php");
     }else {
         //没有的话就进入中间件处理
-        loadModule("activity.tools");
-        addAct($Event["user_id"],5);
         require('../middleWare/Chain.php');
     }
 }
