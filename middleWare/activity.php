@@ -19,9 +19,8 @@
 //    along with YeziiBot.  If not, see <http://www.gnu.org/licenses/>.
 
 //-----------------------------------------------------------------------
-global $Message, $Queue;
-
-if (!(strpos($Message, '[CQ:bface,p=')!==false)) {
+global $Message;
+if(!preg_match('/\[CQ:bface,p=.*\]/', $Message)){
     loadModule("activity.tools");
     addAct($Event["user_id"],5); 
 }
