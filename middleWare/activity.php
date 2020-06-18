@@ -21,6 +21,12 @@
 //-----------------------------------------------------------------------
 global $Message;
 if(!preg_match('/CQ:bface/', $Message)){
-    loadModule("activity.tools");
-    addAct($Event["user_id"],5); 
+    $MsgProc = $Message;
+    //More string process codes
+    //If detect fails, just clear $MsgProc
+    if (mb_strlen($MsgProc)>3) {
+        loadModule("activity.tools");
+        addAct($Event["user_id"],5); 
+    }
+    
 }
