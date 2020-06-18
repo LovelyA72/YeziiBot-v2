@@ -22,6 +22,8 @@
 global $Message;
 if(!preg_match('/CQ:bface/', $Message)){
     $MsgProc = $Message;
+    //Remove repeated chars if appears more/equal than 3 times
+    $MsgProc = preg_replace('/(.)\1{2,}/',"",$MsgProc);
     //More string process codes
     //If detect fails, just clear $MsgProc
     if (mb_strlen($MsgProc)>3) {
