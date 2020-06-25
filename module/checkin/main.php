@@ -79,7 +79,8 @@ if($lastCheckinTime>=$today){
         }
     }else{
         addAct($qid,40);
-        switch (rand(1,4)) {
+        //default event disabled
+        switch (rand(1,3)) {
             case 1:
                 $Queue[]= sendBack('签到成... 诶呀！clipboard掉地上了');
                 break;
