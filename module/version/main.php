@@ -28,4 +28,4 @@ if ($hash) {
     $vernume = $Version["num"];
 }
 $vername = $Version["name"];
-$Queue[]= sendBack("YeziiBot v2\nv{$vernume} {$vername} \n项目地址：https://github.com/LovelyA72/YeziiBot-v2\n受AGPL v3开源许可证保护");
+$Queue[]= sendBack("YeziiBot v2\nv{$vernume} {$vername}");
