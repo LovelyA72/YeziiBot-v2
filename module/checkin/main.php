@@ -29,6 +29,7 @@ $qid = $Event['user_id'];
 $income = rand(15, 45);
 $xpincome = rand(150, 500);
 $addEng = 10;
+$actRec = (int)config("checkinAct",40);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
 $today = date('ymd');
@@ -57,7 +58,7 @@ if($lastCheckinTime>=$today){
         "呜～签到失败了....人家该如何是好啊...（慌慌张张）明天再来吧！",
         "诶嘿～★您呼叫的签到不在服务区～请明天再签唷～")));
 }else{
-    decAct($qid,40);
+    decAct($qid,$actRec);
 	if(rand(1,100)<=$successRate){
         addEnergy($qid,$addEng);
         $incomex = $income*$multi;
@@ -78,7 +79,7 @@ if($lastCheckinTime>=$today){
             }
         }
     }else{
-        addAct($qid,40);
+        addAct($qid,$actRec);
         //default event disabled
         switch (rand(1,3)) {
             case 1:
