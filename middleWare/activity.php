@@ -20,7 +20,7 @@
 
 //-----------------------------------------------------------------------
 global $Message;
-if(!preg_match('/CQ:(bface|image)/', $Message)){
+if(!preg_match('/^\[CQ:(bface|image|face|emoji|sface)\,(|.+)\]$/', $Message)){
     $MsgProc = $Message;
     //Remove repeated chars if appears more/equal than 3 times
     $MsgProc = preg_replace('/(.)\1{2,}/',"",$MsgProc);
@@ -28,7 +28,7 @@ if(!preg_match('/CQ:(bface|image)/', $Message)){
     $MsgProc = preg_replace('/[\\pP+~$`^=|<>～｀＄＾＋＝｜＜＞[\]{}【】￥×]/',"",$MsgProc);
     //More string process codes
     //If detect fails, just clear $MsgProc
-    if (mb_strlen($MsgProc)>3) {
+    if (mb_strlen($MsgProc)>2) {
         loadModule("activity.tools");
         addAct($Event["user_id"],8); 
     }

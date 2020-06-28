@@ -28,7 +28,7 @@ loadModule('activity.tools');
 $qid = $Event['user_id'];
 $income = rand(15, 45);
 $xpincome = rand(150, 500);
-$addEng = 10;
+$addEng = 30;
 $actRec = (int)config("checkinAct",40);
 $content = dbRunQueryReturn("SELECT * FROM credits WHERE qid = {$qid}");
 $lastCheckinTime=$content[0]['lastcheck'];
