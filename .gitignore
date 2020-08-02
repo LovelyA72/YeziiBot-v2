@@ -1,8 +1,0 @@
-site/
-config.ini
-storage/
-vendor/
-composer-installer
-composer.phar
-*.bdvoice
-composer.lock
